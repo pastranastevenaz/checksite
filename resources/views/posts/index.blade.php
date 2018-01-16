@@ -8,7 +8,8 @@
 
       <div class="well">
         <h3> <a href="/posts/{{$post->id}}"> {{$post->title}} </a> </h3>
-        <small>{{$post->created_at->toDayDateTimeString()}}</small>
+        <small>Written on {{$post->created_at->toDayDateTimeString()}} by: <b>{{$post->user->name}}</b></small>
+
       </div>
 
     @endforeach
