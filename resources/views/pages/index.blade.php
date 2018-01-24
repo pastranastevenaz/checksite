@@ -1,25 +1,77 @@
 @extends('layouts.app')
 @section('content')
-  <div class="jumbotron text-center">
-    <h1>Thi is the index page</h1>
-    <p>{{$greeting}}</p>
-    <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-      <a class="btn btn-success btn-lg" href="/register" role="buton">Register</a></p>
+  <div class="row">
+    <div class="text-right" id="landing-section">
+      {{-- <h1>Thi is the index page</h1> --}}
+      <div id="landing-text">
+        <p>{{$greeting}}</p>
+      </div>
+      {{-- <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> --}}
+      {{-- <a class="btn btn-success btn-lg" href="/register" role="buton">Register</a></p> --}}
+    </div>
   </div>
 
+  <hr>
+
+  <div class="container" id="about-section">
+    <div id="about-header" class="text-center">
+      <h2>About</h2>
+    </div>
+    <div id="about-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel efficitur erat. Integer vestibulum metus et augue cursus, nec scelerisque ipsum finibus. Aenean mauris erat, semper quis ultrices vitae, suscipit ut mi. Nam libero ipsum, viverra et ligula non, suscipit laoreet augue. Proin et nulla et diam maximus vehicula.</p>
+
+      <p>Sed at libero neque. Morbi eget vulputate leo. Suspendisse a accumsan nisl. Mauris est augue, hendrerit et mauris sed, placerat placerat libero. Etiam consequat ante ut nunc molestie, a vehicula sem pellentesque. Curabitur vestibulum urna vestibulum nisl tincidunt eleifend.</p>
 
 
-  <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    </div>
+    <br>
+    <div id="about-footer" class="text-center">
+      <small>Donec cursus lacus ac metus pretium imperdiet. Vestibulum rhoncus est leo</small>
+    </div>
+    <br>
+    <hr>
+  </div>
+
+  <div class="container" id="contact-section">
+    <div id="contact-header" class="text-center">
+      <h2>Contact Me</h2>
+    </div>
+    {{-- <p>Feel free to sreach me via contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p> --}}
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+          </div>
+          <div class="form-group ">
+            <label for="exampleInputText">Your Message</label>
+            <textarea  class="form-control" placeholder="Description"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default">Send Message</button>
+        </form>
+        <br>
+        <hr>
+        <br>
+      </div>
+    </div>
+  </div>
+
+      {{-- <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <li><a href="#">Action</a></li>
     <li><a href="#">Another action</a></li>
     <li><a href="#">Something else here</a></li>
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul>
-</div>
+</div> --}}
 @endsection

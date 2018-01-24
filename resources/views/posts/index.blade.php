@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="container">
   <h1>Blog Posts</h1>
 
   @if(count($posts)>0)
@@ -24,4 +25,5 @@
   @else
     <p>No Posts found</p>
   @endif
+</div>
 @endsection

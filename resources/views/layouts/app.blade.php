@@ -16,9 +16,11 @@
 <body>
     <div id="app">
         @include('inc.navbar')
-        <div class="container">
+        <div class="container-fluid">
           @include('inc.messages')
-          @yield('content')
+          <div id="content">
+            @yield('content')
+          </div>
         </div>
     </div>
 

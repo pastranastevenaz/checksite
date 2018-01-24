@@ -8,7 +8,7 @@ class PagesController extends Controller
 {
     //
     public function index(){
-      $greeting="Welcome to Tim's site";
+      $greeting="Welcome to my site";
       // return view('pages.index', compact('greeting'));
       return view('pages.index')->with('greeting', $greeting);
     }
