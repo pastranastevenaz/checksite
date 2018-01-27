@@ -16,7 +16,9 @@
 //   return "Hello " . $name;
 // });
 
-Route::get('/', 'PagesController@index');
+// Route::get('/', 'PagesController@index');
+
+Route::get('/', ['as' => 'home_path', 'uses' => 'PagesController@index']);
 
 Route::get('/about', 'PagesController@about');
 
@@ -27,3 +29,6 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('home');
+
+Route::get('/contact', 'ContactController@create')->name('contact.create');
+Route::post('/contact', 'ContactController@store')->name('contact.store');
