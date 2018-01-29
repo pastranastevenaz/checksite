@@ -4,7 +4,7 @@
     <div class="text-right" id="landing-section">
       {{-- <h1>Thi is the index page</h1> --}}
       <div id="landing-text">
-        <p>{{$greeting}}</p>
+        <p class="fadeIn">{{$greeting}}</p>
       </div>
       {{-- <p><a class="btn btn-primary btn-lg" href="/login" role="button">Login</a> --}}
       {{-- <a class="btn btn-success btn-lg" href="/register" role="buton">Register</a></p> --}}
