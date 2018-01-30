@@ -18,8 +18,8 @@
     <div class="fadeIn" id="app">
         @include('inc.navbar')
         <div class="container-fluid">
-          @include('inc.messages')
           <div id="content">
+            @include('inc.messages')
             @yield('content')
           </div>
         </div>
@@ -34,6 +34,6 @@
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
     </script>
-    
+
 </body>
 </html>

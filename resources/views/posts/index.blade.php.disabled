@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-  <div id="blog-index" class="container">
-    <h1 class="text-center">Blogs</h1>
+  <div class="container">
+  <h1>Blogs</h1>
 
-    @if(count($posts)>0)
-      @foreach($posts as $post)
-        <div class="post">
-          <div class="row">
+  @if(count($posts)>0)
+    @foreach($posts as $post)
+
+      <div class="well">
+        <div class="row">
           <div class="col-md-4 col-sm-4">
             <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}">
           </div>
@@ -16,12 +17,13 @@
             <small>Written on {{$post->created_at->toDayDateTimeString()}} by: <b>{{$post->user->name}}</b></small>
           </div>
         </div>
-        </div>
-        <br>
-      @endforeach
-      {{$posts->links()}}
-    @else
-      <p class="text-center">No Posts Found</p>
-    @endif
-  </div>
+
+      </div>
+
+    @endforeach
+    {{$posts->links()}}
+  @else
+    <p>No Posts found</p>
+  @endif
+</div>
 @endsection

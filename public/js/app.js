@@ -979,6 +979,21 @@ module.exports = __webpack_require__(42);
 
 __webpack_require__(11);
 
+$(function () {
+    var header = $(".clearHeader");
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 840) {
+            // header.removeClass('clearHeader').addClass("darkHeader");
+            console.log("Greater than: " + scroll);
+        } else {
+            console.log("Less than: " + scroll);
+            // header.removeClass("darkHeader").addClass('clearHeader');
+        }
+    });
+});
+
 window.Vue = __webpack_require__(35);
 
 /**
@@ -990,7 +1005,7 @@ window.Vue = __webpack_require__(35);
 Vue.component('example-component', __webpack_require__(38));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
 
 /***/ }),

@@ -11721,6 +11721,14 @@ a:active {
   text-decoration: none;
 }
 
+#header {
+  background-color: transparent;
+  background: transparent;
+  border-color: transparent;
+  -webkit-transition: height 4s;
+  transition: height 4s;
+}
+
 .nav-link {
   font-size: 1.5em;
   margin-top: 10px;
@@ -11751,6 +11759,21 @@ a:active {
   color: #333;
   font-family: 'Tangerine', serif;
   text-shadow: 4px 4px 4px #aaa;
+}
+
+#blog-index {
+  min-height: 69vh;
+}
+
+.post {
+  min-height: 25vh;
+  padding-top: 3em;
+  padding-left: 2em;
+}
+
+.post:hover {
+  -webkit-box-shadow: 2px 2px 7px 0px black;
+  box-shadow: 2px 2px 7px 0px black;
 }
 
 .footer-wrapper {

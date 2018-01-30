@@ -39,27 +39,34 @@
     {{-- <p>Feel free to sreach me via contact form or visiting our social network sites like Fackebook,Whatsapp,Twitter.</p> --}}
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <form class="form-horizontal">
+
+        {!! Form::open(['route' => 'contact.store']) !!}
           <div class="form-group">
-            <label for="exampleInputName2">Name</label>
-            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+            {{form::label('name', 'Name')}}
+            {{form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Jane Doe'])}}
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail2">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+            {{form::label('name', 'Email')}}
+            {{form::text('email', null, ['class' => 'form-control', 'placeholder' => 'me@example.com'])}}
           </div>
           <div class="form-group ">
-            <label for="exampleInputText">Your Message</label>
-            <textarea  class="form-control" placeholder="Description"></textarea>
+            {{form::label('msg', 'Message')}}
+            {{form::textarea('msg', null, ['class' => 'form-control'])}}
+            {{-- <label for="exampleInputText">Your Message</label> --}}
+            {{-- <textarea  class="form-control" placeholder="Description"></textarea> --}}
           </div>
-          <button type="submit" class="btn btn-default">Send Message</button>
-        </form>
+
+          {!! Form::submit('Submit', ['class' => 'btn btn-default']) !!}
+
+        {!! Form::close() !!}
+
         <br>
         <hr>
         <br>
       </div>
     </div>
   </div>
+
 
       {{-- <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

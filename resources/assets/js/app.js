@@ -7,6 +7,23 @@
 
 require('./bootstrap');
 
+$(function() {
+    var header = $(".clearHeader");
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 840) {
+            // header.removeClass('clearHeader').addClass("darkHeader");
+            console.log("Greater than: " + scroll);
+        } else {
+          console.log("Less than: " + scroll);
+            // header.removeClass("darkHeader").addClass('clearHeader');
+        }
+    });
+});
+
+
+
 window.Vue = require('vue');
 
 /**

@@ -26,7 +26,13 @@ a:hover, a:active{
 }
 
 
-
+#header{
+  background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+  // margin-bottom: -10px;
+  transition: height 4s;
+}
 
 .nav-link{
   font-size: 1.5em;
@@ -61,6 +67,22 @@ a:hover, a:active{
   // font-weight: bold;
   font-family: 'Tangerine', serif;
   text-shadow: 4px 4px 4px #aaa;
+}
+
+// BLOG INDEX
+#blog-index{
+  min-height: 69vh;
+}
+.post{
+  min-height: 25vh;
+  padding-top: 3em;
+  padding-left: 2em;
+}
+.post:hover{
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(0,0,0,1);
+  -moz-box-shadow: 2px 2px 7px 0px rgba(0,0,0,1);
+  box-shadow: 2px 2px 7px 0px rgba(0,0,0,1);
+
 }
 
 // FOOTER
