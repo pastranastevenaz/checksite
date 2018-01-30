@@ -22,24 +22,10 @@ a{
 a:hover, a:active{
   color: #999;
   background-color: transparent !important;
+  text-decoration: none;
 }
 
-// NAVBAR
 
-// .navbar-default .navbar-toggle .icon-bar {
-//     background-color: black;
-//     z-index: 999;
-// }
-//
-// button,
-// input,
-// optgroup,
-// select,
-// textarea {
-//   color: white !import;
-//   font: inherit;
-//   margin: 0;
-// }
 
 
 .nav-link{
@@ -47,6 +33,11 @@ a:hover, a:active{
   margin-top: 10px;
 }
 
+.nav-link{
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 1.9em !important;
+  text-shadow: 2px 2px 2px #aaa !important;
+}
 // CONTENT
 #content{
   padding-top: 6em;
@@ -65,7 +56,34 @@ a:hover, a:active{
 #landing-text{
   padding-top: 50vh;
   padding-right:20%;
-  font-size: 2.2em;
+  font-size: 4.8em;
   color: #333;
-  font-weight: bold;
+  // font-weight: bold;
+  font-family: 'Tangerine', serif;
+  text-shadow: 4px 4px 4px #aaa;
+}
+
+// FOOTER
+.footer-wrapper{
+  background-color: #555;
+  height: 10em;
+  -webkit-box-shadow: 0px -4px 5px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px -4px 5px -3px rgba(0,0,0,0.75);
+box-shadow: 0px -4px 5px -3px rgba(0,0,0,0.75);
+}
+.footer-divider{
+  background-color: #606F56;
+  height: .5em;
+
+}
+.footer{
+  letter-spacing: 1.7px;;
+  // font-family: 'Quicksand', sans-serif;
+  background-color:#333;
+  height: 10em;
+  -webkit-box-shadow: 0px -4px 5px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px -4px 5px -3px rgba(0,0,0,0.75);
+box-shadow: 0px -4px 5px -3px rgba(0,0,0,0.75);
+padding-top: .7em;
+padding-bottom: .7em;
 }

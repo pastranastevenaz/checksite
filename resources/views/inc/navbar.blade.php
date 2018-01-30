@@ -1,4 +1,4 @@
- <nav class="navbar navbar-fixed-top">
+ <nav id="header" class="navbar navbar-fixed-top">
      <div class="container">
          <div class="navbar-header">
 
