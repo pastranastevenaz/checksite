@@ -46,6 +46,6 @@ class ContactController extends Controller
 
       // flash('Your message has been sent!')->success();
 
-      return redirect()->route('home_path')->with('success', 'Mail Sent');
+      return redirect()->route('home_path')->with('success', 'Message sent');
     }
 }

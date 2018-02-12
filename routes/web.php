@@ -22,6 +22,8 @@ Route::get('/', ['as' => 'home_path', 'uses' => 'PagesController@index']);
 
 Route::get('/about', 'PagesController@about');
 
+Route::get('/schedule', 'PagesController@schedule');
+
 Route::get('/services', 'PagesController@services');
 
 Route::resource('posts', 'PostsController');

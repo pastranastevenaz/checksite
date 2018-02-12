@@ -11736,7 +11736,7 @@ a:active {
 
 .nav-link {
   font-family: 'Quicksand', sans-serif !important;
-  font-size: 1.9em !important;
+  font-size: 1.5em !important;
   text-shadow: 2px 2px 2px #aaa !important;
 }
 
@@ -11769,11 +11769,11 @@ a:active {
   min-height: 25vh;
   padding-top: 3em;
   padding-left: 2em;
+  padding-bottom: 3em;
 }
 
-.post:hover {
-  -webkit-box-shadow: 2px 2px 7px 0px black;
-  box-shadow: 2px 2px 7px 0px black;
+#schedule-component {
+  min-height: 70vh;
 }
 
 .footer-wrapper {

@@ -25,4 +25,8 @@ class PagesController extends Controller
       );
       return view('pages.services')->with($data);
     }
+
+    public function schedule(){
+      return view('pages.schedule');
+    }
 }

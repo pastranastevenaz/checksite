@@ -29,6 +29,8 @@
                {{-- <li><a href='{!! url('/about'); !!}'>About</a></li> --}}
                {{-- <li><a href='{!! url('/services'); !!}'>Services</a></li> --}}
                <li class="nav-link"><a href='{!! url('/posts'); !!}'>Blog</a></li>
+               {{-- Need to create an appt app with WP or another CMS --}}
+               <li class="nav-link"><a href='https://book.timbarber.info'>Schedule</a></li>
              </ul>
 
              <!-- Right Side Of Navbar -->
