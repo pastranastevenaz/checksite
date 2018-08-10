@@ -4,30 +4,18 @@
 Background Check
 
 
-==========
-Database commands
-
-php artisan make:migration migrationname
-php artisan migrate
-==========
-
-
-User: steven |  steven.antonio.dev@gmail.com | eefsop-023@S
+LARAVEL Base app
 
 
 
-CUSTOM FIELD TO USER
-https://www.easylaravelbook.com/blog/adding-custom-fields-to-a-laravel-5-registration-form/
 
 
-USING VUE IN LARAVEL
-https://blog.pusher.com/why-vuejs-laravel/
+### JOURNAL
 
+#### 2018-08-09
 
+Worked on the Account profile admin and edit pages.. I think I found a great layout for now. PHPMyadmin in the top left of the screen. I've got the application on the bottom left. And taking up the entire right side, I've got my text editor Atom, and an Atom plugin enabled terminal Sitting bottom right.
 
-KIll Server:
-sudo kill $(sudo netstat -tlnp | awk '/:8000 */ {split($NF,a,"/"); print a[1]}')
+I'm working on the login for whether the application considers the user's profile complete or not.
 
-
-MAKE A MVC MODEL, CONTROLLER, FACTORY AND MIGRATION
- php artisan make:model Task -a
+This is a lot of fun. Pretty challenging but fun. I've been on this particular feature for about 2 days now.

@@ -17,3 +17,6 @@ storage/*.key
 Homestead.yaml
 Homestead.json
 /.vagrant
+
+
+.NOTES
