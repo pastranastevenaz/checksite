@@ -36,3 +36,6 @@ Route::post('/updateuser', 'DashboardController@updateUser');
 
 Route::get('/contact', 'ContactController@create')->name('contact.create');
 Route::post('/contact', 'ContactController@store')->name('contact.store');
+
+
+Route::resource('tasks', 'TasksController');

@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             // META
             $table->increments('id');
             $table->timestamps();
-            $table->ipAddress('ipAddress');
+            $table->ipAddress('ipaddress');
 
             // USER INFO
             $table->string('user', 24)->nullable(false);
@@ -28,6 +28,10 @@ class CreateTasksTable extends Migration
             $table->boolean('employment_verification')->nullable(false);
             $table->boolean('drug_testing')->nullable(false);
             // SUBJECT INFO
+            $table->string('first_name', 32)->nullable(false);
+            $table->string('middle_name', 32)->nullable(true);
+            $table->string('last_name', 32)->nullable(false);
+            $table->string('fed_id_num', 9)->nullable(false);
 
         });
     }
