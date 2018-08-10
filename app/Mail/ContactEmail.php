@@ -31,7 +31,7 @@ class ContactEmail extends Mailable
         return $this
               ->from('example@example.com')
               ->to(config('mail.from.address'))
-              ->subject('timbarber.info')
+              ->subject('Background Check contact')
               ->view('emails.contact');
     }
 }

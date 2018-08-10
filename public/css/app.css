@@ -11746,7 +11746,7 @@ a:active {
 
 #landing-section {
   margin-top: -6em;
-  background: url("/storage/images/timbackground.jpg") no-repeat center center fixed;
+  background: url("/storage/images/indexheader.jpg") no-repeat center center fixed;
   background-size: cover;
   -o-background-size: cover;
   height: 100vh;
@@ -11796,5 +11796,53 @@ a:active {
   box-shadow: 0px -4px 5px -3px rgba(0, 0, 0, 0.75);
   padding-top: .7em;
   padding-bottom: .7em;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+#admin-info-header {
+  display: span;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#panel-heading-left {
+  text-align: center;
+}
+
+#panel-heading-right {
+  text-align: left;
+}
+
+#admin-info-body {
+  display: span;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-top: 26px !important;
+}
+
+.avatar-image {
+  border-radius: 50%;
+  height: 140px;
+  max-width: 140px;
+  -webkit-box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.75);
+  background-size: cover;
+}
+
+li {
+  list-style-type: none;
+}
+
+#cancelupdate {
+  display: inline;
+}
+
+#profileComplete b {
+  color: red;
 }
 

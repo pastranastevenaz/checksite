@@ -1,0 +1,52 @@
+#admin-info-header{
+  display: span;
+  justify-content: space-around;
+}
+
+#panel-heading-left{
+  // display: flex;
+  // flex: 2;
+  // border-style: solid;
+  text-align: center;
+}
+#panel-heading-right{
+  // display: flex;
+  text-align: left;
+  // flex: 5;
+  // border-style: solid;
+}
+
+#admin-info-body{
+  display: span;
+  justify-content: space-around;
+  padding-top: 26px !important;
+}
+
+.avatar-image{
+  border-radius: 50%;
+  height: 140px;
+  max-width: 140px;
+  -webkit-box-shadow: 0px 10px 20px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 20px -9px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 20px -9px rgba(0,0,0,0.75);
+  background-size: cover;
+
+}
+
+// .navbar-nav > li > .dropdown-menu { background-color: red; }
+
+
+li{
+  list-style-type: none;
+}
+
+
+
+
+#cancelupdate{
+  display: inline;
+}
+
+#profileComplete b{
+  color: red;
+}

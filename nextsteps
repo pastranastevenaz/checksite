@@ -1,0 +1,14 @@
+I completed the account signup and edit profile. There''s some javascript autoloading the form filds with the data from the Auth::user object
+
+
+Next I have to figure out what I'm going to do about the avatar image
+
+
+Also, Need to create a link to submit a new background report request blade.
+
+It will only be visible to authorized users, who value == profileComplete set to 1 or true.
+  show warning that their profile
+  is not completed or approved.
+
+
+Start testing the background check API with the creds for Sterling

@@ -4,9 +4,9 @@
 
   </div>
     <div class="footer">
-      <h4 class="text-center">Tim Barber</h4>
-      <p class="text-center">&copy; 2018 timbarber.info
-      <br>timbarber@timbarber.info
-      <br>480-433-8555</p>
+      <h4 class="text-center">Background Check Services</h4>
+      <p class="text-center">&copy; 2018 Haminastu Services LLC.
+      <br>https://Haminastu.com
+      <br>800-555-1234</p>
     </div>
 </div>

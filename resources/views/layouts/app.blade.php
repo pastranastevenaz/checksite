@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="fadeIn" id="app">
+    <div class="animated fadeIn" id="app">
         @include('inc.navbar')
         <div class="container-fluid">
           <div id="content">

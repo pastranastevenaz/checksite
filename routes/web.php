@@ -30,7 +30,9 @@ Route::resource('posts', 'PostsController');
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/edituser', 'DashboardController@editUser');
+Route::post('/updateuser', 'DashboardController@updateUser');
 
 Route::get('/contact', 'ContactController@create')->name('contact.create');
 Route::post('/contact', 'ContactController@store')->name('contact.store');

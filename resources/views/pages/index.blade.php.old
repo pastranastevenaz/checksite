@@ -4,7 +4,7 @@
     <div class="text-right" id="landing-section">
       {{-- <h1>Thi is the index page</h1> --}}
       <div id="landing-text">
-        <p class="animated fadeIn">{{$greeting}}</p>
+        <p class="fadeIn">{{$greeting}}</p>
       </div>
 
 
