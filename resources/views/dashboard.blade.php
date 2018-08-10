@@ -57,7 +57,7 @@
 
               <div id="admin-info-body" class="row">
                 <div id="profileComplete">
-      
+
                   @if(Auth::user()->profileComplete == 0)
                     <b>FINISH PROFILE!!!</b>
 
@@ -131,7 +131,10 @@
 
             <div id="dashboard-content-panel" class="panel panel-default">
                 <div class="panel-heading">
-                  <b>Dashboard</b>
+
+                    <b><a href='{!! url('/tasks'); !!}'><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> </span> Dashboard</a></b>
+
+
                   <span class="pull-right">Welcome {{ ucfirst(Auth::user()->name) }}</span>
                 </div>
 

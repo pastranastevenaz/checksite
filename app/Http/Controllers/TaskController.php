@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Illuminate\Http\Request;
-// use DB;
+
 
 class TaskController extends Controller
 {
@@ -18,7 +18,9 @@ class TaskController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-      }
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +29,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderby('created_at', 'dec')->paginate(6);
-        return view('tasks.index')->with('tasks', $tasks)
+        return view('tasks.index')->with('tasks', $tasks);
     }
 
     /**
@@ -37,7 +39,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasts.create')
+        return view('tasts.create');
     }
 
     /**
