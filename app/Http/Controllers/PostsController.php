@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Fascades\Storage;
 use App\Post;
 use DB;
+// use Illuminate\Support\Fascades\Storage;
+use Storage;
 
 class PostsController extends Controller
 {
@@ -68,17 +69,29 @@ class PostsController extends Controller
           // FileName to Store
           $fileNameToStore = $filename.'_'.time().'.'.$extension;
           // Upload the Image
-          $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+          // $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+          // $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+          $file = Storage::disk('s3')->put($fileNameToStore, fopen($request->file('cover_image'), 'r+'), 'public');
+          // Storage::disk('s3')->put($fileNameToStore, $request->file('cover_image'));
+          // $var = Storage::disk('s3')->exists('avatar/jpg');
+          // $files = Storage::files('uploads');
+          // dd($files);
+          $urlPrefixRaw = Storage::disk('s3')->url($file);
+          $urlPrefix = substr_replace($urlPrefixRaw,"",-1);
+          $url = $urlPrefix.$fileNameToStore;
         } else{
           $fileNameToStore = 'noimage.jpg';
         }
+
+
+
 
         // Create Post
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = auth()->user()->id;
-        $post->cover_image = $fileNameToStore;
+        $post->cover_image = $url;
         $post->save();
 
         return redirect('/posts')->with('success', 'Blog Post Created');

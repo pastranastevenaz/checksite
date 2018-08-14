@@ -38,3 +38,17 @@ dedicate too  much time to figuring how I'll off shot that somewhere.
 
 I'm thinking trynig to use some kind of clode block storage for thise, as
 long as I can find something affordable.
+
+
+#### 2018-08-13
+
+It's been a few days since I've worked on this. Hopefully I can make some
+decent progress today. I plan on working on the layout of the services page to
+start out with. However, i believe I'll start with the avatar upload feature.
+
+--
+
+So I decided to use an AWS s# bucket for the avatar images.First thing I did was go create a new empty bucket in my AWS acct.
+
+It took me several hours to even figure out how to connect to, upload, and display an image  using s3. Wow! I can't stand AWS documentation.
+It's pretty much useless. 

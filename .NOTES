@@ -25,9 +25,25 @@ https://blog.pusher.com/why-vuejs-laravel/
 
 
 
+
+
+php artisan config:clear
+
+php artisan cache:clear
+
+php artisan config:cache
+
+
+
 KIll Server:
 sudo kill $(sudo netstat -tlnp | awk '/:8000 */ {split($NF,a,"/"); print a[1]}')
 
 
 MAKE A MVC MODEL, CONTROLLER, FACTORY AND MIGRATION
  php artisan make:model Task -a
+
+
+
+
+UPLOAD TO S3
+http://stayregular.net/blog/how-to-upload-images-using-amazon-s3-and-laravel
