@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-// use Illuminate\Support\Fascades\Storage;
-use Storage;
 
 class DashboardController extends Controller
 {
@@ -65,9 +63,6 @@ class DashboardController extends Controller
       ]);
 
       // Handle file upload
-      $oldAvatarURL = auth()->user()->avatar;
-      $oldAvatar = basename($oldAvatarURL);
-
 
       if($request->hasFile('avatar')){
         // Get Filename with the extension
@@ -75,27 +70,20 @@ class DashboardController extends Controller
 
         // Get Just the filename
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        // dd($filename);
 
         // Get the extension
         $extension = $request->file('avatar')->getClientOriginalExtension();
 
         // File name to Store with timestamp
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        $fileNameToStore = $filename->file.'_'.time().$extension;
 
         // Upload the avatar image to s3 disk
-
-        // First Delete the old file from s3
-        if($oldAvatar != 'noavatar.jpg'){
-          Storage::disk('s3')->delete($oldAvatar);
-        }
-        // Now upload
-        $file = Storage::disk('s3')->put($fileNameToStore,
-                fopen($request->file('avatar'), 'r+'), 'public');
+        $file = Storage::disk('s3')->url($file);
 
         // Generate, then clean the last character of the upload url
         $urlPrefixRaw = Storage::disk('s3')->url($file);
         $urlPrefix = substr_replace($urlPrefixRaw, "", -1);
+
         // Save the upload path URL to a variable to save it to the database
 
       } else{

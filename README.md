@@ -48,7 +48,22 @@ start out with. However, i believe I'll start with the avatar upload feature.
 
 --
 
-So I decided to use an AWS s# bucket for the avatar images.First thing I did was go create a new empty bucket in my AWS acct.
+So I decided to use an AWS s# bucket for the avatar images.First thing I did was
+go create a new empty bucket in my AWS acct.
 
-It took me several hours to even figure out how to connect to, upload, and display an image  using s3. Wow! I can't stand AWS documentation.
-It's pretty much useless. 
+It took me several hours to even figure out how to connect to, upload, and
+display an image  using s3. Wow! I can't stand AWS documentation.It's pretty
+much useless.
+
+After a few hours spent trying to figure out the elementary task of connecting to
+s3 with it's odd user documentation, I was able to start working on the form and
+image upload for the avatar feature. I would use the Starage:: fascade to save
+the file to s3, use a little PHP ninjacraft to generate the absolute URL to the
+s3 object, and saved that to the database, with a default avatar as fallback.
+
+Next I need to figure out a way to delete the old image, during an updated.
+
+Well, that was not too difficult. Just enclosed a Storage:: delete fascade within
+a if(old_filename != 'default_filename'){ delete it }; This day beat the crap out
+of me. I've historically had a hard time wrapping my mind around Amazon's API,
+but I'm glad I stuck with it. I feel fairly accomplished today. 

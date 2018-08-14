@@ -25,7 +25,9 @@
                 <div id="admin-info-header" class="panel-heading">
                   <div class="row">
                   <div class="col-sm-4" id="panel-heading-left">
-                    <img class="avatar-image" style="width:70%" src="<?php echo asset("storage/images/samplefemaleavatar.jpg")?>">
+                    <img class="avatar-image" style="width:70%" src="{{ Auth::user()->avatar }}">
+
+                    <!-- <img class="avatar-image" style="width:70%" src="<?php echo asset("storage/images/samplefemaleavatar.jpg")?>"> -->
                     <br><br>
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     <a href='{!! url('/edituser'); !!}'><b>Edit Profile</b></a>
