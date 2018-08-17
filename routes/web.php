@@ -24,11 +24,11 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/schedule', 'PagesController@schedule');
 
-Route::get('/services', 'PagesController@services');
 
 Route::resource('posts', 'PostsController');
 
 Auth::routes();
+Route::get('/services', 'PagesController@services');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/edituser', 'DashboardController@editUser');

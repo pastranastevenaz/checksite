@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'about', 'schedule']]);
+    }
     //
     public function index(){
       $greeting="Welcome";
@@ -19,6 +28,9 @@ class PagesController extends Controller
     }
 
     public function services(){
+      if(!auth()->user()->profileComplete){
+        return redirect('/dashboard')->with('error', 'Must complete profile to request service');
+      }
       $data=array(
         'title' => 'Services',
         'services'=>['Criminal Background Checks', 'Employment Verification', 'Drug Testing']
