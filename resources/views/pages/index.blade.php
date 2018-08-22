@@ -32,6 +32,7 @@
     <hr>
   </div>
 
+fffffffff
   <div class="container" id="contact-section">
     <div id="contact-header" class="text-center">
       <h2>Contact Me</h2>
@@ -60,6 +61,7 @@
 
         {!! Form::close() !!}
 
+
         <br>
         <hr>
         <br>
@@ -68,7 +70,8 @@
   </div>
 
 
-      {{-- <div class="dropdown">
+      {{--
+         <div class="dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       Dropdown
       <span class="caret"></span>
@@ -80,5 +83,6 @@
     <li role="separator" class="divider"></li>
     <li><a href="#">Separated link</a></li>
   </ul>
-</div> --}}
+</div>
+--}}
 @endsection

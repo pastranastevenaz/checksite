@@ -55,3 +55,10 @@ https://www.base64encode.org/
 
 
 =
+
+
+
+*********************8
+Before deploying
+
+Turn off Less then greater then console.log from assets/js/app/js

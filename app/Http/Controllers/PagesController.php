@@ -27,7 +27,7 @@ class PagesController extends Controller
       return view('pages.about')->with('message', $message);
     }
 
-    public function services(){
+    public function services(Request $request){
       if(!auth()->user()->profileComplete){
         return redirect('/dashboard')->with('error', 'Must complete profile to request service');
       }
@@ -35,6 +35,8 @@ class PagesController extends Controller
         'title' => 'Services',
         'services'=>['Criminal Background Checks', 'Employment Verification', 'Drug Testing']
       );
+      // $request->session()->put('foo', 'bar');
+      // dd($request->session()->all());
       return view('pages.services')->with($data);
     }
 

@@ -12,13 +12,13 @@ $(function() {
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
-        if (scroll >= 840) {
-            // header.removeClass('clearHeader').addClass("darkHeader");
-            console.log("Greater than: " + scroll);
-        } else {
-          console.log("Less than: " + scroll);
-            // header.removeClass("darkHeader").addClass('clearHeader');
-        }
+        // if (scroll >= 840) {
+        //     // header.removeClass('clearHeader').addClass("darkHeader");
+        //     console.log("Greater than: " + scroll);
+        // } else {
+        //   console.log("Less than: " + scroll);
+        //     // header.removeClass("darkHeader").addClass('clearHeader');
+        // }
     });
 });
 
@@ -33,9 +33,9 @@ window.Vue = require('vue');
  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-// 
-// Vue.component('statedrop', require('./components/Statedrop.vue'));
 //
-// const app = new Vue({
-//     el: '#statedrop'
-// });
+Vue.component('services', require('./components/SerivcesComponent.vue'));
+
+const app = new Vue({
+    el: '#services'
+});

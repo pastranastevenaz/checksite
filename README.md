@@ -66,4 +66,38 @@ Next I need to figure out a way to delete the old image, during an updated.
 Well, that was not too difficult. Just enclosed a Storage:: delete fascade within
 a if(old_filename != 'default_filename'){ delete it }; This day beat the crap out
 of me. I've historically had a hard time wrapping my mind around Amazon's API,
-but I'm glad I stuck with it. I feel fairly accomplished today. 
+but I'm glad I stuck with it. I feel fairly accomplished today.
+
+
+
+
+#### 2018-08-17
+
+I woke up pretty early this moring. I woke up at 5AM. I went to the gym for an
+hour, then came back home to focus on finally learning to use this Sterling API
+I recently got test keys to. I hate to admint, but I was really doubting my ability
+to learn to use this. I've consumed APIs before, but never tried consuming one
+that required authenticaiton headers; much less Oauth2. I thought I would have
+an easier time trying to learn to use this API if I used a Postman. Mind you,
+I've never use Postman.
+
+Mind you, I've never used Postman. {{ Link to what is Postman }}. It took me
+about 3 hours of clumbsily fumbling around with it to finally figure out how
+to use Postman to generate an HTTP request and add the corect Auth headers to
+generate an authentication token.
+
+Fast forward another few hours, and I finally figured out hot to make
+authenticated requests to all the API endpoints.
+
+You can check out my walkthrough of how to connect to the Sterling API _link("here")
+
+By that time I had to go to my actual job.
+
+Fast forward to later that day. I finally got on the computer and added a new
+migration to include a default value avater for the Auth::user . I also added
+authentication requirement to the services page, and a redirect back to the
+dashboard if the Auth::user did not have a completed profile.
+
+Not sure what I'll work on tomorrow, but I'm looking forward to it.
+
+#### 2018-08-18

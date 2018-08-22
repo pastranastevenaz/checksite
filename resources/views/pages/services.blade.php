@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
   <h1>{{$title}}</h1>
+  <div id="services">
+    <services></services>
+  </duv>
 
-  @if(count($services)>0)
+  <!-- @if(count($services)>0)
   <ul class="list-group">
     @foreach($services as $service)
 
@@ -10,5 +13,5 @@
 
     @endforeach
   </ul>
-  @endif
+  @endif -->
 @endsection
