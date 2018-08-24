@@ -39,3 +39,4 @@ Route::post('/contact', 'ContactController@store')->name('contact.store');
 
 
 Route::resource('tasks', 'TaskController');
+Route::resource('subjects', 'SubjectController');
