@@ -32,13 +32,45 @@
 
   <div class="form-group">
     {{form::label('state', 'State')}}
-    echo Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...']);
-
-
+    <select class="form-control" input name="state">
+      @foreach($states as $state)
+        <option value="{{ $state }}">{{ $state }}</option>
+      @endforeach
+    </select>
   </div>
 
+  <div class="form-group">
+    {{form::label('postal_code', 'Postal Code')}}
+    {{form::text('postal_code', '', ['class' => 'form-control', 'placeholder' => 'Postal Code'])}}
+  </div>
 
+  <div class="form-group">
+    {{form::label('phone', 'Phone')}}
+    {{form::tel('phone', '', ['class' => 'form-control', 'placeholder' => 'Phone'])}}
+  </div>
 
+  <hr>
+
+  <!-- ### Driver's License Info -->
+  <!-- ### -->
+  <div class="form-group">
+    {{form::label('drivers_license_type', 'Drivers License Type')}}
+    <select class="form-control" input name="drivers_license_type", 1>
+      @foreach($states as $state)
+        <option value="{{ $state }}">{{ $state }}</option>
+      @endforeach
+    </select>
+  </div>
+
+  <div class="form-group">
+    {{form::label('drivers_license_agency', 'Drivers Licence Agency')}}
+    {{form::tel('phone', '', ['class' => 'form-control', 'placeholder' => 'Phone'])}}
+  </div>
+
+  <div class="form-group">
+    {{form::label('drivers_license_number', 'Drivers Licence Number')}}
+    {{form::tel('phone', '', ['class' => 'form-control', 'placeholder' => 'Phone'])}}
+  </div>
 
 
 

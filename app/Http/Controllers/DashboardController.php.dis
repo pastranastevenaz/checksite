@@ -52,6 +52,8 @@ class DashboardController extends Controller
       // return redirect('/dashboard')->with('success', 'Name Updates');
     }
 
+
+
     public function updateUser(Request $request) {
       $user_id = auth()->user()->id;
       $user = User::find($user_id);
@@ -85,11 +87,14 @@ class DashboardController extends Controller
         $urlPrefix = substr_replace($urlPrefixRaw, "", -1);
 
         // Save the upload path URL to a variable to save it to the database
+        $avatar_url = $urlPrefix.$fileNameToStore;
 
-      } else{
-        $fileNameToStore = 'noavatar.jpg';
+      } elseif (!$request->hasFile('avatar') && auth()->user()->avatar == 'https://s3-us-west-1.amazonaws.com/background.avatar/noavatar.jpg') {
+          $avatar_url = 'https://s3-us-west-1.amazonaws.com/background.avatar/noavatar.jpg';
+      }else{
+        // $fileNameToStore = 'noavatar.jpg';
+        return redirect('error', 'Must have an avatar');
       }
-      $avatar_url = $urlPrefix.$fileNameToStore;
 
       $user->avatar = $avatar_url;
       $user->name = strtolower($request->input('name'));

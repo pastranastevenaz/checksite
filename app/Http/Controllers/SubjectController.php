@@ -38,7 +38,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        return view('subjects.create');
+      $states = array("AL" => "Alabama", "AK" => "Alaska", "AZ" => "Arizona");
+        return view('subjects.create')->with('states', $states);
     }
 
     /**

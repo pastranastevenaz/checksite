@@ -28,7 +28,8 @@ Route::get('/schedule', 'PagesController@schedule');
 Route::resource('posts', 'PostsController');
 
 Auth::routes();
-Route::get('/services', 'PagesController@services');
+// Route::get('/services', 'PagesController@services');
+Route::resource('services', 'ServicesController');
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/edituser', 'DashboardController@editUser');

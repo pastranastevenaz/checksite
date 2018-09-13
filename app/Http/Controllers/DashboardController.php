@@ -97,11 +97,11 @@ class DashboardController extends Controller
         $urlPrefixRaw = Storage::disk('s3')->url($file);
         $urlPrefix = substr_replace($urlPrefixRaw, "", -1);
         // Save the upload path URL to a variable to save it to the database
-
+        $avatar_url = $urlPrefix.$fileNameToStore;
       } else{
-        $fileNameToStore = 'noavatar.jpg';
+        $avatar_url = auth()->user()->avatar;
       }
-      $avatar_url = $urlPrefix.$fileNameToStore;
+      // $avatar_url = $urlPrefix.$fileNameToStore;
 
       $user->avatar = $avatar_url;
       $user->name = strtolower($request->input('name'));

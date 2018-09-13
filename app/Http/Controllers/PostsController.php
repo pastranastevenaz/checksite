@@ -12,7 +12,7 @@ class PostsController extends Controller
 {
     /**
      * Create a new controller instance.
-     *    //Only allowing the index age and the show pae
+     *    //Only allowing the index page and the show page
      * @return void
      */
     public function __construct()

@@ -101,3 +101,6 @@ dashboard if the Auth::user did not have a completed profile.
 Not sure what I'll work on tomorrow, but I'm looking forward to it.
 
 #### 2018-08-18
+
+
+I decided to use this codebase as the codebase for the house cleaning app.
