@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Simple Clean'),
+    'name' => env('APP_NAME', 'Simple Clean Store'),
     // 'name' => "Your LMT",
 
     /*

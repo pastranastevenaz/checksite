@@ -10,7 +10,11 @@
                 <div class="post">
                     <div class="row">
                         <div class="col-md-4 col-sm-4">
-                            {{ $service->client->name }}
+                            {{ $service }}
+                            <hr>
+                            {{ $service->client }}
+                            <hr>
+                            <p><b>Client: </b>{{ $service->client->name }}</p>
                         </div>
                     </div>
                 </div>
