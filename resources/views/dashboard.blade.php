@@ -8,14 +8,6 @@
 
 
 
-
-
-
-
-
-
-
-
             <div id="dashboard-info-panel" class="panel panel-default">
 
 
@@ -61,7 +53,7 @@
                 <div id="profileComplete">
 
                   @if(Auth::user()->profileComplete == 0)
-                    <b>FINISH PROFILE!!!</b>
+                    <center><b>FINISH PROFILE!!!</b></center><br>
 
                   @endif
 
@@ -120,62 +112,24 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+            @if (Auth::user()->usertype === 2)
             <div id="dashboard-content-panel" class="panel panel-default">
                 <div class="panel-heading">
 
-                    <b><a href='{!! url('/tasks'); !!}'><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> </span> Dashboard</a></b>
+                    <b><a href='{!! url('/tasks'); !!}'><span class="glyphicon glyphicon-list-alt" aria-hidden="true"> </span> Service Requests</a></b>
 
 
                   <span class="pull-right">Welcome {{ ucfirst(Auth::user()->name) }}</span>
                 </div>
 
 
-
-                <!-- <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <a href="{!! url('/posts/create')!!}" class="btn btn-primary">Create Post</a>
-                    <h3> Your Blog Posts</h3>
-                    @if(count($posts)>0)
-                      <table class="table table-striped">
-                        <tr>
-                          <th>Title</th>
-                          <th></th>
-                          <th></th>
-                        </tr>
-                        @foreach($posts as $post)
-                          <tr>
-                            <td>{{$post->title}}</td>
-                            <td><a href="{!! url('/posts/'.$post->id.'/edit') !!}" class="btn btn-default">Edit</a></td>
-                            <td>
-                              {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
-                                {{Form::hidden('_method', 'DELETE')}}
-                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                              {!!Form::close()!!}
-                            </td>
-                          </tr>
-                        @endforeach
-                      </table>
-                    @else
-
-                    <center><p>You have no blog posts....</p></center>
-                    @endif
-                </div> -->
             </div><!-- END: content-panel -->
+
+            @elseif (Auth::user()->usertype ===3)
+              <h1>You are a Contractor</h1>
+
+            @endif
+
 
 
 

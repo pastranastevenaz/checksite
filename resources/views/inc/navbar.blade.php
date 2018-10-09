@@ -26,7 +26,7 @@
              </ul>
 
              <ul class="nav navbar-nav ">
-               <li class="nav-link"><a href='{!! url('/'); !!}'>Simple Background Check</a></li>
+               <li class="nav-link"><a href='{!! url('/'); !!}'>{{ config('app.name') }}</a></li>
                <li class="nav-link"><a href='{!! url('/'); !!}'><span class="glyphicon glyphicon-home" aria-hidden="true"><span></a></li>
                {{-- <li><a href='{!! url('/about'); !!}'>About</a></li> --}}
 

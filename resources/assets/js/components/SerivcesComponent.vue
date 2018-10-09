@@ -3,10 +3,136 @@
       <div class="row">
           <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
-                  <div class="panel-heading">Available Background Services</div>
+                  <div class="panel-heading">New Service</div>
 
                   <div class="panel-body">
-                      I'm the Services component!
+                      <p><b>Address: </b>{{ selected }}</p>
+                      <div class="form-group">
+                        <label for="address-selector">Address: </label>
+                        <select id="address-selector" class="form-control" v-model="selected" required>
+                          <option v-for="address in addresses">
+                            {{ address }}
+                          </option>
+                        </select>
+                      </div>
+                      <br>
+
+                      <!-- ##################  -->
+                      <!-- # OTHER ROOM SECTION-->
+                      <!-- #                   -->
+                      <h4><b>Living Room: </b></h4>
+                      <label for="cleanlevel">Clean Level: </label>
+                      <input type="radio" value="1" v-model="livingroom.cleanLevel">Standard
+                      <input type="radio" value="2" v-model="livingroom.cleanLevel">Deluxe
+                      <input type="radio" value="0" v-model="livingroom.cleanLevel" class="pull-right"> <span class="pull-right"> None </span>
+                      <br>
+                      {{ livingroom.cleanLevel }}
+                      <h4> <b>Kitchen: </b></h4>
+                      <label for="cleanlevel">Clean Level: </label>
+                      <input type="radio" value="1" v-model="kitchen.cleanLevel">Standard
+                      <input type="radio" value="2" v-model="kitchen.cleanLevel">Deluxe
+                      <input type="radio" value="0" v-model="kitchen.cleanLevel" class="pull-right"> <span class="pull-right"> None </span>
+                      <br>
+                      {{ kitchen.cleanLevel }}
+                      <h4><b>Dining Room:</b></h4>
+                      <label for="cleanlevel">Clean Level: </label>
+                      <input type="radio" value="1" v-model="diningroom.cleanLevel" selected="true">Standard
+                      <input type="radio" value="2" v-model="diningroom.cleanLevel">Deluxe
+                      <input type="radio" value="0" v-model="diningroom.cleanLevel" class="pull-right"> <span class="pull-right"> None </span>
+                      <br>
+                      {{ diningroom.cleanLevel }}
+
+                      <!-- ################## -->
+                      <!-- # BEDROOM SECTION  -->
+                      <!-- #                  -->
+                      <h3><b>Bedrooms: {{ bedrooms.length }}</b></h3>
+                      <div class="animated fadeIn" v-for="(bedroom, index) in bedrooms">
+
+
+
+                        <b><h4>Bedroom {{ index + 1 }}</h4></b>
+                        <label for="bedroomname">Room Name:</label>
+                        <!-- ERROR SECTION -->
+                        <div class="alert alert-danger" v-if="bedroom.errors.length">
+                          Please enter a description!
+                        </div>
+                        <input class="form-control" :id="'bedroomname'+(index+1)" v-model="bedroom.name">
+
+                        <label for="cleanlevel" class="radioLabel">Clean Level: </label>
+                        <input type="radio" v-model="bedroom.cleanLevel" value="1">Standard
+                        <input type="radio" v-model="bedroom.cleanLevel" value="2">Deluxe
+                        <br>
+                        <!-- <span>Clean Level: {{ bedroom.cleanLevel }}</span> -->
+                        <br>
+                        <button class="btn btn-danger pull-right" v-on:click="removeBedroom(index);" style="cursor: pointer">Remove</button>
+                      </div>
+
+
+                      <!-- ################## -->
+                      <!-- # BATHROOM SECTION  -->
+                      <!-- #                  -->
+                      <h3><b>Bathrooms: {{ bathrooms.length }}</b></h3>
+
+                      <div class="animated fadeIn" v-for="(bathroom, index) in bathrooms">
+                        <b><h4>Bathroom {{ index + 1 }}</h4></b>
+                        <label for="bathroomname">Room Name: </label>
+
+                        <!-- ERROR SECTION -->
+                        <div class="alert alert-danger" v-if="bathroom.errors.length">
+                          Please enter a description!
+                        </div>
+                        <input class="form-control" :id="'bathroomname'+(index+1)" v-model="bathroom.name">
+
+                        <label for="cleanlevel">Clean Level:</label>
+                        <input type="radio" v-model="bathroom.cleanLevel" value="1">Standard
+                        <input type="radio" v-model="bathroom.cleanLevel" value="2">Deluxe
+
+                        <br>
+                        <button class="btn btn-danger pull-right" v-on:click="removeBathroom(index);" style="cursor: pointer">Remove</button>
+                      </div>
+
+                      <hr>
+
+
+
+
+                      <h2>Extras</h2>
+
+
+
+
+                      <div class="animated fadeIn" :id="'extraroomId' + (index+1)" v-for="(extraroom, index) in extrarooms">
+                        <b><h4>Extraroom {{ index + 1}}</h4></b>
+                        <label for="extraroomname">Room Name: </label>
+                        <!-- ERROR SECTION -->
+                        <div class="alert alert-danger" v-if="extraroom.errors.length">
+                          Please enter a description!
+                        </div>
+                        <input class="form-control" :id="'extraroomname'+(index+1)" v-model="extraroom.name">
+                        <label for="cleanlevel">Clean Level:</label>
+                        <input type="radio" v-model="extraroom.cleanLevel" value="1">Standard
+                        <input type="radio" v-model="extraroom.cleanLevel" value="2">Deluxe
+                        <br>
+                        <button class="btn btn-danger pull-right" v-on:click="removeExtraroom(index);" style="cursor: pointer">Remove</button>
+                      </div>
+
+                      <hr>
+
+
+
+
+
+
+                      <button class="btn btn-default" v-on:click="addBedroomRow"
+                              :disabled="this.bedrooms.length > 9">Add Bedroom</button>
+                      <button class="btn btn-default" v-on:click="addBathroomRow"
+                              :disabled="this.bathrooms.length > 4">Add Bathroom</button>
+                      <button class="btn btn-default" v-on:click="addExtraroomRow"
+                              :disabled="this.extrarooms.length > 1.">Add Extra Room</button>
+                      <br><br>
+                      <button class="btn btn-primary" v-on:click="submitRequest"
+                              :disabled="(this.bedrooms.length < 1) && (this.bathrooms.length < 1) &&
+                                         (this.livingroom.cleanLevel < 1) && (this.kitchen.cleanLevel < 1) && (this.diningroom.cleanLevel < 1)">Submit Request</button>
                   </div>
               </div>
           </div>
@@ -15,33 +141,241 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+
 export default {
-    data: {
-      // CREATE CANDIDATE
-      "id": "",
-      "clientReferenceId": "",
-      "email": "",
-      "givenName": "",
-      "familyName": "",
-      "confirmedNoMiddleName": false,
-      "dob": "",
-      "ssn": "",
-      // "candidateId": "",
-      // "packageId": "",
-      // "endUserCertificate": false,
-      // "callback": {
-      //     "uri": "https://requestinspector.com/inspect/01ce4rr85cwprmxqw6p76m10kz",
-      //    //  "credentials": {
-      //    //    "basic-auth": "narf:zort!"
-      //    // }
-       // },
+    data() {
+      return{
+        errors: [],
+        selected: "",
+        addresses: [],
+        livingroom: {
+          cleanLevel: "1"
+        },
+        kitchen: {
+          cleanLevel: "1"
+        },
+        diningroom: {
+          cleanLevel: "1"
+        },
+        bedrooms: [],
+        bathrooms: [],
+        extrarooms: []
+      }
+    },
+    methods:{
+
+      // checkForm: function
+      makeRequest: function () {
+        console.log("MAKE REQUEST FUNCTION CALLED!!!");
+        let data = {
+          street_address: this.selected,
+          livingroom: this.livingroom.cleanLevel,
+          kitchen: this.kitchen.cleanLevel,
+          diningroom: this.diningroom.cleanLevel,
+          bedroom0: this.bedrooms[0] ? this.bedrooms[0].cleanLevel : 0,
+          bedroom1: this.bedrooms[1] ? this.bedrooms[1].cleanLevel : 0,
+          bedroom2: this.bedrooms[2] ? this.bedrooms[2].cleanLevel : 0,
+          bedroom3: this.bedrooms[3] ? this.bedrooms[3].cleanLevel : 0,
+          bedroom4: this.bedrooms[4] ? this.bedrooms[4].cleanLevel : 0,
+          bedroom5: this.bedrooms[5] ? this.bedrooms[5].cleanLevel : 0,
+          bedroom6: this.bedrooms[6] ? this.bedrooms[6].cleanLevel : 0,
+          bedroom7: this.bedrooms[7] ? this.bedrooms[7].cleanLevel : 0,
+          bedroom8: this.bedrooms[8] ? this.bedrooms[8].cleanLevel : 0,
+          bedroom9: this.bedrooms[9] ? this.bedrooms[9].cleanLevel : 0,
+
+          bathroom0: this.bathrooms[0] ? this.bathrooms[0].cleanLevel : 0,
+          bathroom1: this.bathrooms[1] ? this.bathrooms[1].cleanLevel : 0,
+          bathroom2: this.bathrooms[2] ? this.bathrooms[2].cleanLevel : 0,
+          bathroom3: this.bathrooms[3] ? this.bathrooms[3].cleanLevel : 0,
+          bathroom4: this.bathrooms[4] ? this.bathrooms[4].cleanLevel : 0,
+
+          extraroom1_name: this.extrarooms[0] ? this.extrarooms[0].name : "",
+          extraroom1_level: this.extrarooms[0] ? this.extrarooms[0].cleanLevel : 0,
+          extraroom2_name: this.extrarooms[1] ? this.extrarooms[1].name : "",
+          extraroom2_level: this.extrarooms[1] ? this.extrarooms[1].cleanLevel : 0,
+        }
+        axios.post('/services/store',data)
+          .then(response => {
+            console.log(response.data);
+            // window.location.replace("/dashboard");
+          })
+        // axios.post('/services/store', data, {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   }
+        // })
+        //   .then(response => {
+        //     console.log(response);
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   })
+
+        // CLEAR THE FIELDS
+        this.bedrooms = [];
+        this.bathrooms = [];
+        this.extrarooms = [];
+      },
+
+      submitRequest: function () {
+        // let noErrors = false;
+        this.errors = [];
+        // console.log("Address is: "+this.selected);
+
+        for(var i=0; i<this.bedrooms.length; i++){
+          if(!this.bedrooms[i].name){
+            this.bedrooms[i].errors = "This is an error";
+            // console.log(this.bedrooms.errors);
+            // noErrors = false;
+            this.errors.push('error bedroom: '+i);
+          }else{
+            // console.log(this.bedrooms[i]);
+            // noErrors = true;
+          }
+        }
+
+        for(var n=0; n<this.bathrooms.length; n++){
+          if(!this.bathrooms[n].name){
+            this.bathrooms[n].errors = "This is an error";
+            // noErrors = false;
+            this.errors.push('error bathroom: '+n);
+          }else{
+            // noErrors = true;
+          }
+        }
+
+        for(var j=0; j<this.extrarooms.length; j++){
+          if(!this.extrarooms[j].name){
+            this.extrarooms[j].errors = "This is an error";
+            // noErrors = false;
+            this.errors.push('error extraroom: '+j);
+          }else{
+            // noErrors = true;
+          }
+        }
+
+
+
+        console.log("Total errors: "+this.errors.length);
+        if (this.errors.length < 1){
+
+          // var t0 = performance.now();
+          this.isValidRequest();
+          // var t1 = performance.now();
+          // console.log("Call to do ANother thing took " + (t1 - t0) + " milliseconds.")
+
+
+          // console.log("Submitted "+this.bedrooms.length+" bedrooms & "+this.bathrooms.length+ " bathrooms");
+          // console.log("Bedroom " +(i+1)+": "+ this.bedrooms[i].name+"| Clean Level: "+ this.bedrooms[i].cleanLevel);
+          // console.log("bathroom "+(n+1)+": "+ this.bathrooms[n].name + "| Clean Level: " + this.bathrooms[n].cleanLevel);
+          // console.log("Bedrooms: "+this.bedrooms[0].cleanLevel);
+          // this.bedrooms = [];
+          // this.bathrooms = [];
+        }else{
+          console.log(this.errors.length+" SUBMISSION HAS AN ERROR");
+        }
+        this.makeRequest();
+      },
+
+      isValidRequest: function () {
+        // console.log("isValidFucntion CALED!!!!!!!!!");
+        if (this.livingroom.cleanLevel > 0  || this.kitchen.cleanLevel > 0 ||
+            this.diningroom.cleanLevel > 0 || this.bedrooms.length > 0 ||
+                                              this.bathroom.length){
+
+          console.log("SUCCESSFUL SUBMISSION");
+          console.log("living room is TRUE!: " +  this.livingroom.cleanLevel);
+          console.log("Number of Bedrooms: " + this.bedrooms.length);
+          console.log("Extra Room 1: " + this.extrarooms[0].name + " clean level: " + this.extrarooms[0].cleanLevel);
+          return true;
+        }
+
+        return false;
+
+      },
+
+
+      getSavedAddresses: function () {
+        console.log("Retrieved addresses");
+        axios.get('/userdata')
+        .then(response =>{
+          console.log(response.data);
+          this.addresses = response.data;
+          this.selected = response.data[0];
+          // console.log(this.address[1]);
+        })
+        .catch(error =>{
+          console.log(error);
+        })
+      },
+
+      // CREATE NEW BEDROOM INPUT
+      addBedroomRow: function () {
+        this.bedrooms.push({
+          name:"",
+          cleanLevel: "1",
+          errors: ""
+        });
+        console.log('Added a Bedroom row');
+      },
+
+      removeBedroom: function(index) {
+                    this.bedrooms.splice(index, 1);
+                },
+
+
+
+
+
+      // CREATE NEW BATHROOM INPUT
+      addBathroomRow: function () {
+        this.bathrooms.push({
+          name: "",
+          cleanLevel: "1",
+          errors: ""
+        });
+        console.log('Added Bathroom Row');
+      },
+      removeBathroom: function(index) { this.bathrooms.splice(index, 1); },
+
+
+      addExtraroomRow: function() {
+        this.extrarooms.push({
+          name: "",
+          cleanLevel: "1",
+          errors: ""
+        })
+      },
+      removeExtraroom: function(index){
+          // document.getElementById("extraroomId1").className = "animated";
+          // extraroomDiv.className = "animated fadeOut";
+
+          console.log(" DELETED!!!!");
+
+          this.extrarooms.splice(index, 1);
+        },
+
+    },  // END METHODS ///////////////
+
+
+
+
+    // LIFECYCLE HOOKS
+    created() {
+      console.log('Before Monunted');
+      this.getSavedAddresses();
     },
     mounted() {
-        console.log('Services Component mounted.')
+        console.log('Services Component mounted.');
+
     }
 }
 </script>
 
 <style scoped>
-
+.radioLabel{
+  margin-right: 2em !important;
+}
 </style>

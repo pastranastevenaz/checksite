@@ -1,4 +1,11 @@
+## COLORS
 
+RedColor: #FF5B4F    https://www.colorhexa.com/ff5b4f
+BlueColor: #0e263d https://www.colorhexa.com/0e263d
+TanColor: #FDDABD  https://www.colorhexa.com/f3dbc7
+GoldColor:    https://www.color-hex.com/color-palette/2799
+
+###########
 ## About
 
 Background Check
@@ -58,6 +65,9 @@ https://www.base64encode.org/
 
 
 
+When deploying Passport to your production servers for the first time, you will likely need to run the passport:keys command. This command generates the encryption keys Passport needs in order to generate access token. The generated keys are not typically kept in source control:
+
+php artisan passport:keys
 *********************8
 Before deploying
 
