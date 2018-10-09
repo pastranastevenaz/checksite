@@ -30,6 +30,8 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 // Route::get('/services', 'PagesController@services');
 Route::resource('services', 'ServicesController');
+Route::post('services/store', 'ServicesController@store')->middleware('ajax');
+
 
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/edituser', 'DashboardController@editUser');
@@ -43,4 +45,4 @@ Route::resource('tasks', 'TaskController');
 Route::resource('subjects', 'SubjectController');
 
 
-Route::get('/userdata', 'UserDataController@showData');
+Route::get('/userdata', 'UserDataController@showData')->middleware('ajax');

@@ -81,7 +81,51 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $method = $request->method();
+
+      if ($request->isMethod('post')) {
+
+        // $input = $request->all();
+        $data = $request->all();
+        // dd($data);
+
+        // return $request->street_address;
+        $service = new Services;
+        $service->owner_id = auth()->user()->id;
+        $service->street_address = $request->street_address;
+        $service->livingroom = $request->livingroom;
+        $service->kitchen = $request->kitchen;
+        $service->diningroom = $request->diningroom;
+        $service->bedroom0 = $request->bedroom0;
+        $service->bedroom1 = $request->bedroom1;
+        $service->bedroom2 = $request->bedroom2;
+        $service->bedroom3 = $request->bedroom3;
+        $service->bedroom4 = $request->bedroom4;
+        $service->bedroom5 = $request->bedroom5;
+        $service->bedroom6 = $request->bedroom6;
+        $service->bedroom7 = $request->bedroom7;
+        $service->bedroom8 = $request->bedroom8;
+        $service->bedroom9 = $request->bedroom9;
+
+        $service->bathroom0 = $request->bathroom0;
+        $service->bathroom1 = $request->bathroom1;
+        $service->bathroom2 = $request->bathroom2;
+        $service->bathroom3 = $request->bathroom3;
+        $service->bathroom4 = $request->bathroom4;
+
+        $service->extraroom1_name = $request->extraroom1_name;
+        $service->extraroom1_level = $request->extraroom1_level;
+        $service->extraroom2_name = $request->extraroom2_name;
+        $service->extraroom2_level = $request->extraroom2_level;
+
+        $service->save();
+        // print $service;
+        return $service;
+        // return redirect('/');
+        // return redirect('services')->with($input);
+      }
+
+      return redirect('/')->with('error', 'You are not authorized to view that resource');
     }
 
     /**

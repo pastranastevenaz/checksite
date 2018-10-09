@@ -46,7 +46,7 @@
                       <!-- # BEDROOM SECTION  -->
                       <!-- #                  -->
                       <h3><b>Bedrooms: {{ bedrooms.length }}</b></h3>
-                      <div v-for="(bedroom, index) in bedrooms">
+                      <div class="animated fadeIn" v-for="(bedroom, index) in bedrooms">
 
 
 
@@ -72,9 +72,8 @@
                       <!-- # BATHROOM SECTION  -->
                       <!-- #                  -->
                       <h3><b>Bathrooms: {{ bathrooms.length }}</b></h3>
-                      <div v-for="(bathroom, index) in bathrooms">
 
-
+                      <div class="animated fadeIn" v-for="(bathroom, index) in bathrooms">
                         <b><h4>Bathroom {{ index + 1 }}</h4></b>
                         <label for="bathroomname">Room Name: </label>
 
@@ -93,12 +92,43 @@
                       </div>
 
                       <hr>
+
+
+
+
                       <h2>Extras</h2>
+
+
+
+
+                      <div class="animated fadeIn" :id="'extraroomId' + (index+1)" v-for="(extraroom, index) in extrarooms">
+                        <b><h4>Extraroom {{ index + 1}}</h4></b>
+                        <label for="extraroomname">Room Name: </label>
+                        <!-- ERROR SECTION -->
+                        <div class="alert alert-danger" v-if="extraroom.errors.length">
+                          Please enter a description!
+                        </div>
+                        <input class="form-control" :id="'extraroomname'+(index+1)" v-model="extraroom.name">
+                        <label for="cleanlevel">Clean Level:</label>
+                        <input type="radio" v-model="extraroom.cleanLevel" value="1">Standard
+                        <input type="radio" v-model="extraroom.cleanLevel" value="2">Deluxe
+                        <br>
+                        <button class="btn btn-danger pull-right" v-on:click="removeExtraroom(index);" style="cursor: pointer">Remove</button>
+                      </div>
+
+                      <hr>
+
+
+
+
+
 
                       <button class="btn btn-default" v-on:click="addBedroomRow"
                               :disabled="this.bedrooms.length > 9">Add Bedroom</button>
                       <button class="btn btn-default" v-on:click="addBathroomRow"
                               :disabled="this.bathrooms.length > 4">Add Bathroom</button>
+                      <button class="btn btn-default" v-on:click="addExtraroomRow"
+                              :disabled="this.extrarooms.length > 1.">Add Extra Room</button>
                       <br><br>
                       <button class="btn btn-primary" v-on:click="submitRequest"
                               :disabled="(this.bedrooms.length < 1) && (this.bathrooms.length < 1) &&
@@ -131,13 +161,62 @@ export default {
         },
         bedrooms: [],
         bathrooms: [],
+        extrarooms: []
       }
     },
     methods:{
 
       // checkForm: function
       makeRequest: function () {
+        console.log("MAKE REQUEST FUNCTION CALLED!!!");
+        let data = {
+          street_address: this.selected,
+          livingroom: this.livingroom.cleanLevel,
+          kitchen: this.kitchen.cleanLevel,
+          diningroom: this.diningroom.cleanLevel,
+          bedroom0: this.bedrooms[0] ? this.bedrooms[0].cleanLevel : 0,
+          bedroom1: this.bedrooms[1] ? this.bedrooms[1].cleanLevel : 0,
+          bedroom2: this.bedrooms[2] ? this.bedrooms[2].cleanLevel : 0,
+          bedroom3: this.bedrooms[3] ? this.bedrooms[3].cleanLevel : 0,
+          bedroom4: this.bedrooms[4] ? this.bedrooms[4].cleanLevel : 0,
+          bedroom5: this.bedrooms[5] ? this.bedrooms[5].cleanLevel : 0,
+          bedroom6: this.bedrooms[6] ? this.bedrooms[6].cleanLevel : 0,
+          bedroom7: this.bedrooms[7] ? this.bedrooms[7].cleanLevel : 0,
+          bedroom8: this.bedrooms[8] ? this.bedrooms[8].cleanLevel : 0,
+          bedroom9: this.bedrooms[9] ? this.bedrooms[9].cleanLevel : 0,
 
+          bathroom0: this.bathrooms[0] ? this.bathrooms[0].cleanLevel : 0,
+          bathroom1: this.bathrooms[1] ? this.bathrooms[1].cleanLevel : 0,
+          bathroom2: this.bathrooms[2] ? this.bathrooms[2].cleanLevel : 0,
+          bathroom3: this.bathrooms[3] ? this.bathrooms[3].cleanLevel : 0,
+          bathroom4: this.bathrooms[4] ? this.bathrooms[4].cleanLevel : 0,
+
+          extraroom1_name: this.extrarooms[0] ? this.extrarooms[0].name : "",
+          extraroom1_level: this.extrarooms[0] ? this.extrarooms[0].cleanLevel : 0,
+          extraroom2_name: this.extrarooms[1] ? this.extrarooms[1].name : "",
+          extraroom2_level: this.extrarooms[1] ? this.extrarooms[1].cleanLevel : 0,
+        }
+        axios.post('/services/store',data)
+          .then(response => {
+            console.log(response.data);
+            // window.location.replace("/dashboard");
+          })
+        // axios.post('/services/store', data, {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   }
+        // })
+        //   .then(response => {
+        //     console.log(response);
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   })
+
+        // CLEAR THE FIELDS
+        this.bedrooms = [];
+        this.bathrooms = [];
+        this.extrarooms = [];
       },
 
       submitRequest: function () {
@@ -167,20 +246,57 @@ export default {
           }
         }
 
+        for(var j=0; j<this.extrarooms.length; j++){
+          if(!this.extrarooms[j].name){
+            this.extrarooms[j].errors = "This is an error";
+            // noErrors = false;
+            this.errors.push('error extraroom: '+j);
+          }else{
+            // noErrors = true;
+          }
+        }
+
+
 
         console.log("Total errors: "+this.errors.length);
         if (this.errors.length < 1){
-          console.log("SUCCESSFUL SUBMISSION");
 
-          console.log("Submitted "+this.bedrooms.length+" bedrooms & "+this.bathrooms.length+ " bathrooms");
+          // var t0 = performance.now();
+          this.isValidRequest();
+          // var t1 = performance.now();
+          // console.log("Call to do ANother thing took " + (t1 - t0) + " milliseconds.")
+
+
+          // console.log("Submitted "+this.bedrooms.length+" bedrooms & "+this.bathrooms.length+ " bathrooms");
           // console.log("Bedroom " +(i+1)+": "+ this.bedrooms[i].name+"| Clean Level: "+ this.bedrooms[i].cleanLevel);
           // console.log("bathroom "+(n+1)+": "+ this.bathrooms[n].name + "| Clean Level: " + this.bathrooms[n].cleanLevel);
-          this.bedrooms = [];
-          this.bathrooms = [];
+          // console.log("Bedrooms: "+this.bedrooms[0].cleanLevel);
+          // this.bedrooms = [];
+          // this.bathrooms = [];
         }else{
           console.log(this.errors.length+" SUBMISSION HAS AN ERROR");
         }
+        this.makeRequest();
       },
+
+      isValidRequest: function () {
+        // console.log("isValidFucntion CALED!!!!!!!!!");
+        if (this.livingroom.cleanLevel > 0  || this.kitchen.cleanLevel > 0 ||
+            this.diningroom.cleanLevel > 0 || this.bedrooms.length > 0 ||
+                                              this.bathroom.length){
+
+          console.log("SUCCESSFUL SUBMISSION");
+          console.log("living room is TRUE!: " +  this.livingroom.cleanLevel);
+          console.log("Number of Bedrooms: " + this.bedrooms.length);
+          console.log("Extra Room 1: " + this.extrarooms[0].name + " clean level: " + this.extrarooms[0].cleanLevel);
+          return true;
+        }
+
+        return false;
+
+      },
+
+
       getSavedAddresses: function () {
         console.log("Retrieved addresses");
         axios.get('/userdata')
@@ -222,14 +338,26 @@ export default {
         });
         console.log('Added Bathroom Row');
       },
-
-      removeBathroom: function(index) {
-                    this.bathrooms.splice(index, 1);
-                },
+      removeBathroom: function(index) { this.bathrooms.splice(index, 1); },
 
 
+      addExtraroomRow: function() {
+        this.extrarooms.push({
+          name: "",
+          cleanLevel: "1",
+          errors: ""
+        })
+      },
+      removeExtraroom: function(index){
+          // document.getElementById("extraroomId1").className = "animated";
+          // extraroomDiv.className = "animated fadeOut";
 
-    },
+          console.log(" DELETED!!!!");
+
+          this.extrarooms.splice(index, 1);
+        },
+
+    },  // END METHODS ///////////////
 
 
 

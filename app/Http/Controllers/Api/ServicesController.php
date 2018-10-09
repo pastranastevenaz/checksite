@@ -34,9 +34,10 @@ class ServicesController extends Controller
     // return "Hello";
   }
 
-  public function store()
+  public function store(Request $requst)
   {
 
+    return "Hello Response!!! API";
   }
 
   public function show()
