@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Address;
 // use Illuminate\Support\Fascades\Storage;
 use Storage;
 
@@ -44,10 +45,19 @@ class DashboardController extends Controller
 
       $user_id = auth()->user()->id;
       $user = User::find($user_id);
+      $address = Address::find($user)->where('owner_id', '=', $user_id)->first();
+      // $my_addresses = $addresses->where('owner_id', '=', $user_id);
+      // dd($addresses);
       if(!$user){
         return redirect('/')->with('error', 'User Not Found');
       }
-      return view('auth.edituser')->with('user', $user);
+      // return view('auth.edituser')->with('user', $user);
+
+      return view('auth.edituser',[
+                                      'user'=> $user,
+                                      'address' => $address
+                                      // 'now' => $now
+                                  ]);
       // $user->name = $request->input('name');
       // $user->save();
 
@@ -107,15 +117,48 @@ class DashboardController extends Controller
       $user->name = strtolower($request->input('name'));
       $user->organization = strtolower($request->input('organization'));
       $user->phone = $request->input('phone');
-      $user->street_address = strtolower($request->input('street_address'));
-      $user->city = strtolower($request->input('city'));
-      $user->state = strtoupper($request->input('state'));
-      $user->zip = $request->input('zip');
+      // $user->street_address = strtolower($request->input('street_address'));
+      // $user->city = strtolower($request->input('city'));
+      // $user->state = strtoupper($request->input('state'));
+      // $user->zip = $request->input('zip');
+
+      $address = Address::all()->where('owner_id', '=', $user_id)->first();
+      // dd($address);
+      $address->street_address = strtolower($request->input('street_address'));
+      $address->city = strtolower($request->input('city'));
+      $address->state = strtoupper($request->input('state'));
+      $address->zip = $request->input('zip');
+
+      // $output = self::setGeoLocation($address);
+      // $address->lat = $output->results[0]->geometry->location->lat;
+      // $address->long = $output->results[0]->geometry->location->lng;
+
+      $streetAddress = strtolower($request->input('street_address'));
+      // $city = $addressData->city;
+      // $state = $addressData->state;
+      $explodedAddress = str_replace(" ", "+", $streetAddress);
+      $city = strtolower($request->input('city'));
+      $state = strtoupper($request->input('state'));
+      $zip = $request->input('zip');
+      $add = $explodedAddress.',+'.$city.',+'.$state;
+
+      $auth = "AIzaSyBaBnU-fORxeuDxUDdiFzYvVXeFd2wdnrg";
+      $context = stream_context_create(['http' => ['header' => "Authorization: Basic $auth"]]);
+      // $homepage = file_get_contents("http://example.com/file", false, $context );
+
+      $geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$add.'&sensor=false,+CA&key='.$auth);
+      $output = json_decode($geocode);
+      // dd($output);
+      $address->lat = $output->results[0]->geometry->location->lat;
+      $address->long = $output->results[0]->geometry->location->lng;
+
+
       if($request){
         $user->profileComplete = 1;
       }
 
       $user->save();
+      $address->save();
       // if ($user->name && $user->phone &&
       //     $user->street_address &&
       //     $user->city && $user->state &&
@@ -140,5 +183,17 @@ class DashboardController extends Controller
         return false;
       }
 
+    }
+
+    public function setGeoLocation($addressData) {
+      $streetAddress = $addressData->street_address;
+      $city = $addressData->city;
+      $state = $addressData->state;
+      $explodedAddress = str_replace(" ", "+", $streetAddress);
+      $add = $explodedAddress.',+'.$city.',+'.$state;
+      $geocode = file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$add.'&sensor=false');
+      $output = json_decode($geocode);
+
+      return $output;
     }
 }

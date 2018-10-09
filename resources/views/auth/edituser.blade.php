@@ -80,7 +80,8 @@
                           <label for="street_address" class="col-md-4 control-label">Street Address</label>
 
                           <div class="col-md-6">
-                              <input id="street_address" type="text" class="form-control" name="street_address" value="{{ Auth::user()->street_address }}" required autofocus>
+                              <!-- <input id="street_address" type="text" class="form-control" name="street_address" value="{{ Auth::user()->street_address }}" required autofocus> -->
+                              <input id="street_address" type="text" class="form-control" name="street_address" value="{{ $address->street_address or '' }}" required autofocus>
 
                               @if ($errors->has('street_address'))
                                   <span class="help-block">
@@ -95,7 +96,7 @@
                           <label for="city" class="col-md-4 control-label">City</label>
 
                           <div class="col-md-6">
-                              <input id="city" type="text" class="form-control" name="city" value="{{ Auth::user()->city }}" required autofocus>
+                              <input id="city" type="text" class="form-control" name="city" value="{{ $address->city or '' }}" required autofocus>
 
                               @if ($errors->has('city'))
                                   <span class="help-block">
@@ -114,7 +115,7 @@
 
                           <div class="col-md-6">
 
-                              <select id="state" class="form-control" name="state" value="{{ Auth::user()->state }}" required autofocus>
+                              <select id="state" class="form-control" name="state" value="{{ $address->state or '' }}" required autofocus>
                                 <ul class="dropdown-menu" aria-labelledby="state">
                                   <!-- ********************** -->
                                   <!-- ** -->
@@ -202,7 +203,7 @@
                           <label for="zip" class="col-md-4 control-label">Zip</label>
 
                           <div class="col-md-6">
-                              <input id="zip" type="text" class="form-control" name="zip" value="{{ Auth::user()->zip }}" required autofocus>
+                              <input id="zip" type="text" class="form-control" name="zip" value="{{ $address->zip or '' }}" required autofocus>
 
                               @if ($errors->has('zip'))
                                   <span class="help-block">
@@ -241,7 +242,7 @@
 
 <script>
 
-stateSet="{{ Auth::user()->state }}";
+stateSet="{{ $address->state or ''}}";
 
 var stateList = [
   "AL","AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL",
