@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services;
 use Illuminate\Http\Request;
 use App\User;
+use App\Address;
 use Illuminate\Support\Facades\Auth;
 // use Carbon\Carbon;
 
@@ -92,7 +93,13 @@ class ServicesController extends Controller
         // return $request->street_address;
         $service = new Services;
         $service->owner_id = auth()->user()->id;
+        $service->phone = auth()->user()->phone;
         $service->street_address = $request->street_address;
+        $service->city = $request->city;
+        $service->state = $request->state;
+        $service->zip = $request->zip;
+        $service->lat = $request->lat;
+        $service->long = $request->long;
         $service->livingroom = $request->livingroom;
         $service->kitchen = $request->kitchen;
         $service->diningroom = $request->diningroom;
@@ -127,6 +134,40 @@ class ServicesController extends Controller
 
       return redirect('/')->with('error', 'You are not authorized to view that resource');
     }
+
+
+    public function addressadd(Request $request)
+    {
+      $method = $request->method();
+
+      if ($request->isMethod('post')) {
+          $address = new Address;
+
+          $address->street_address = strtolower($request->_streetAddress);
+          $address->city = strtolower($request->_city);
+          $address->state = $request->_state;
+          $address->zip = $request->_zip;
+
+          // CALCULATE GEOLOCATION
+          $explodedAddress = strtolower($request->_streetAddress);
+          $city = strtolower($request->_city);
+          $state = $request->_state;
+          $zip = $request->_zip;
+          $add = $explodedAddress.',+'.$city.',+'.$state;
+
+          $auth = "AIzaSyBaBnU-fORxeuDxUDdiFzYvVXeFd2wdnrg";
+          $context = stream_context_create(['http' => ['header' => "Authorization: Basic $auth"]]);
+
+          $geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$add.'&sensor=false,+CA&key='.$auth);
+          $output = json_decode($geocode);
+
+          $address->lat = $output->results[0]->geometry->location->lat;
+          $address->long = $output->results[0]->geometry->location->lng;
+
+      }
+      return redirect('/')->with('error', 'You are not authorized to view that resource');
+    }
+
 
     /**
      * Display the specified resource.

@@ -45,4 +45,4 @@ Route::resource('tasks', 'TaskController');
 Route::resource('subjects', 'SubjectController');
 
 
-Route::get('/userdata', 'UserDataController@showData')->middleware('ajax');
+Route::get('/userdata', 'UserDataController@showData');//->middleware('ajax');

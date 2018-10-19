@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var isBuffer = __webpack_require__(21);
 
 /*global toString:true*/
@@ -377,33 +377,6 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -483,7 +456,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -711,7 +684,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -820,6 +793,33 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -843,10 +843,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
+    adapter = __webpack_require__(9);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(8);
+    adapter = __webpack_require__(9);
   }
   return adapter;
 }
@@ -917,10 +917,16 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(20);
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -938,7 +944,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1128,7 +1134,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1139,7 +1145,7 @@ var settle = __webpack_require__(24);
 var buildURL = __webpack_require__(26);
 var parseHeaders = __webpack_require__(27);
 var isURLSameOrigin = __webpack_require__(28);
-var createError = __webpack_require__(9);
+var createError = __webpack_require__(10);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(29);
 
 module.exports = function xhrAdapter(config) {
@@ -1315,7 +1321,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1340,7 +1346,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1352,7 +1358,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1378,15 +1384,15 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(13);
-module.exports = __webpack_require__(62);
+__webpack_require__(14);
+module.exports = __webpack_require__(67);
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -1396,7 +1402,7 @@ module.exports = __webpack_require__(62);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(14);
+__webpack_require__(15);
 
 $(function () {
   var header = $(".clearHeader");
@@ -1423,24 +1429,26 @@ window.Vue = __webpack_require__(38);
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 //
+
 Vue.component('services', __webpack_require__(41));
+Vue.component('addAddress', __webpack_require__(47));
 
-Vue.component('passport-clients', __webpack_require__(47));
+Vue.component('passport-clients', __webpack_require__(52));
 
-Vue.component('passport-authorized-clients', __webpack_require__(52));
+Vue.component('passport-authorized-clients', __webpack_require__(57));
 
-Vue.component('passport-personal-access-tokens', __webpack_require__(57));
+Vue.component('passport-personal-access-tokens', __webpack_require__(62));
 
 var app = new Vue({
   el: '#services'
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(15);
+window._ = __webpack_require__(16);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -1449,9 +1457,9 @@ window._ = __webpack_require__(15);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(17);
+  window.$ = window.jQuery = __webpack_require__(18);
 
-  __webpack_require__(18);
+  __webpack_require__(19);
 } catch (e) {}
 
 /**
@@ -1460,7 +1468,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(19);
+window.axios = __webpack_require__(6);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -1496,7 +1504,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -18608,10 +18616,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(17)(module)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -18639,7 +18647,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -29010,7 +29018,7 @@ return jQuery;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 /*!
@@ -31393,12 +31401,6 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(20);
-
-/***/ }),
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31406,7 +31408,7 @@ module.exports = __webpack_require__(20);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(22);
 var defaults = __webpack_require__(5);
 
@@ -31441,9 +31443,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(11);
+axios.Cancel = __webpack_require__(12);
 axios.CancelToken = __webpack_require__(36);
-axios.isCancel = __webpack_require__(10);
+axios.isCancel = __webpack_require__(11);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -31596,7 +31598,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(9);
+var createError = __webpack_require__(10);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -32031,7 +32033,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(33);
-var isCancel = __webpack_require__(10);
+var isCancel = __webpack_require__(11);
 var defaults = __webpack_require__(5);
 var isAbsoluteURL = __webpack_require__(34);
 var combineURLs = __webpack_require__(35);
@@ -32191,7 +32193,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(11);
+var Cancel = __webpack_require__(12);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -43246,7 +43248,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(39).setImmediate))
 
 /***/ }),
 /* 39 */
@@ -43316,7 +43318,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 40 */
@@ -43509,7 +43511,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(8)))
 
 /***/ }),
 /* 41 */
@@ -43520,7 +43522,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(42)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(45)
 /* template */
@@ -43573,7 +43575,7 @@ var content = __webpack_require__(43);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("65081504", content, false, {});
+var update = __webpack_require__(2)("65081504", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -43592,7 +43594,7 @@ if(false) {
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -43641,8 +43643,90 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43791,8 +43875,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      addingAddress: false,
       errors: [],
       selected: "",
+
+      city: "",
+      state: "",
+
       addresses: [],
       livingroom: {
         cleanLevel: "1"
@@ -43805,17 +43894,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       bedrooms: [],
       bathrooms: [],
-      extrarooms: []
+      extrarooms: [],
+      stateSelected: {},
+      newStreetAddress: "",
+      newCity: "",
+      newZip: "",
+      states: [{ 'abr': 'AL', 'state': 'Alabama' }, { 'abr': 'AK', 'state': 'Alaska' }, { 'abr': 'AZ', 'state': 'Arizona' }, { 'abr': 'AR', 'state': 'Arkansas' }, { 'abr': 'CA', 'state': 'California' }, { 'abr': 'CO', 'state': 'Colorodo' }, { 'abr': 'CT', 'state': 'Connecticut' }, { 'abr': 'DE', 'state': 'Delaware' }, { 'abr': 'DC', 'state': 'District of Columbia' }, { 'abr': 'FL', 'state': 'Florida' }, { 'abr': 'GA', 'state': 'Georgia' }, { 'abr': 'HI', 'state': 'Hawaii' }, { 'abr': 'ID', 'state': 'Idaho' }, { 'abr': 'IL', 'state': 'Illinois' }, { 'abr': 'IN', 'state': 'Indiana' }, { 'abr': 'IA', 'state': 'Iowa' }, { 'abr': 'KS', 'state': 'Kansas' }, { 'abr': 'KY', 'state': 'Kentucky' }, { 'abr': 'ME', 'state': 'Maine' }, { 'abr': 'MD', 'state': 'Maryland' }, { 'abr': 'MA', 'state': 'Massachusetts' }, { 'abr': 'MI', 'state': 'Michigan' }, { 'abr': 'MN', 'state': 'Minnesota' }, { 'abr': 'MS', 'state': 'Mississippi' }, { 'abr': 'MO', 'state': 'Missouri' }, { 'abr': 'MT', 'state': 'Montana' }, { 'abr': 'NE', 'state': 'Nebraska' }, { 'abr': 'NV', 'state': 'Nevada' }, { 'abr': 'NH', 'state': 'New Hampshire' }, { 'abr': 'NJ', 'state': 'New Jersey' }, { 'abr': 'NM', 'state': 'New Mexico' }, { 'abr': 'NY', 'state': 'New York' }, { 'abr': 'NC', 'state': 'North Carolina' }, { 'abr': 'ND', 'state': 'North Dakota' }, { 'abr': 'OH', 'state': 'Ohio' }, { 'abr': 'OK', 'state': 'Oklahoma' }, { 'abr': 'OR', 'state': 'Oregon' }, { 'abr': 'PA', 'state': 'Pennsylvania' }, { 'abr': 'PR', 'state': 'Puerto Rico' }, { 'abr': 'RI', 'state': 'Rhode Island' }, { 'abr': 'SC', 'state': 'South Carolina' }, { 'abr': 'SD', 'state': 'South Dakota' }, { 'abr': 'TN', 'state': 'Tennessee' }, { 'abr': 'TX', 'state': 'Texas' }, { 'abr': 'UT', 'state': 'Utah' }, { 'abr': 'VT', 'state': 'Vermont' }, { 'abr': 'VA', 'state': 'Virgina' }, { 'abr': 'WA', 'state': 'Washington' }, { 'abr': 'WV', 'state': 'West Virginia' }, { 'abr': 'WI', 'state': 'Wisconsin' }, { 'abr': 'WY', 'state': 'Wyoming' }]
     };
   },
 
-  methods: {
 
-    // checkForm: function
+  methods: {
+    changePanel: function changePanel() {
+      this.addingAddress = !this.addingAddress;
+      this.addingAddress ? console.log("Swiutched to address add form") : console.log("Added an address");
+    },
+    foo2: function foo2() {
+      console.log("New address added " + this.newStreetAddress + " " + this.newCity + " " + this.stateSelected.abr + " " + this.newZip);
+      this.changePanel();
+    },
+    addAddressToDatabase: function addAddressToDatabase() {
+      var newAddress = {
+        _streetAddress: this.newStreetAddress,
+        _city: this.newCity,
+        _state: this.stateSelected,
+        _zip: this.newZip
+      };
+      console.log(newAddress);
+      this.changePanel();
+      // TODO Add the code to add the address to the database for the auth user
+    },
     makeRequest: function makeRequest() {
       console.log("MAKE REQUEST FUNCTION CALLED!!!");
+      console.log("MAKEREQUEST SELECTED: " + this.selected);
       var data = {
-        street_address: this.selected,
+        street_address: this.selected.street_address,
+        city: this.selected.city,
+        state: this.selected.state,
+        zip: this.selected.zip,
+        lat: this.selected.lat,
+        long: this.selected.long,
         livingroom: this.livingroom.cleanLevel,
         kitchen: this.kitchen.cleanLevel,
         diningroom: this.diningroom.cleanLevel,
@@ -43841,21 +43959,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         extraroom2_name: this.extrarooms[1] ? this.extrarooms[1].name : "",
         extraroom2_level: this.extrarooms[1] ? this.extrarooms[1].cleanLevel : 0
       };
+      console.log(data);
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/services/store', data).then(function (response) {
         console.log(response.data);
         // window.location.replace("/dashboard");
       });
-      // axios.post('/services/store', data, {
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   }
-      // })
-      //   .then(response => {
-      //     console.log(response);
-      //   })
-      //   .catch(error => {
-      //     console.log(error);
-      //   })
 
       // CLEAR THE FIELDS
       this.bedrooms = [];
@@ -43864,57 +43972,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     submitRequest: function submitRequest() {
-      // let noErrors = false;
       this.errors = [];
       // console.log("Address is: "+this.selected);
-
       for (var i = 0; i < this.bedrooms.length; i++) {
         if (!this.bedrooms[i].name) {
           this.bedrooms[i].errors = "This is an error";
-          // console.log(this.bedrooms.errors);
-          // noErrors = false;
           this.errors.push('error bedroom: ' + i);
-        } else {
-          // console.log(this.bedrooms[i]);
-          // noErrors = true;
-        }
+        } else {}
       }
-
       for (var n = 0; n < this.bathrooms.length; n++) {
         if (!this.bathrooms[n].name) {
           this.bathrooms[n].errors = "This is an error";
-          // noErrors = false;
           this.errors.push('error bathroom: ' + n);
-        } else {
-          // noErrors = true;
-        }
+        } else {}
       }
-
       for (var j = 0; j < this.extrarooms.length; j++) {
         if (!this.extrarooms[j].name) {
           this.extrarooms[j].errors = "This is an error";
-          // noErrors = false;
           this.errors.push('error extraroom: ' + j);
-        } else {
-          // noErrors = true;
-        }
+        } else {}
       }
-
       console.log("Total errors: " + this.errors.length);
       if (this.errors.length < 1) {
-
-        // var t0 = performance.now();
         this.isValidRequest();
-        // var t1 = performance.now();
-        // console.log("Call to do ANother thing took " + (t1 - t0) + " milliseconds.")
-
-
-        // console.log("Submitted "+this.bedrooms.length+" bedrooms & "+this.bathrooms.length+ " bathrooms");
-        // console.log("Bedroom " +(i+1)+": "+ this.bedrooms[i].name+"| Clean Level: "+ this.bedrooms[i].cleanLevel);
-        // console.log("bathroom "+(n+1)+": "+ this.bathrooms[n].name + "| Clean Level: " + this.bathrooms[n].cleanLevel);
-        // console.log("Bedrooms: "+this.bedrooms[0].cleanLevel);
-        // this.bedrooms = [];
-        // this.bathrooms = [];
       } else {
         console.log(this.errors.length + " SUBMISSION HAS AN ERROR");
       }
@@ -43922,16 +44002,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     isValidRequest: function isValidRequest() {
-      // console.log("isValidFucntion CALED!!!!!!!!!");
+      // console.log("isValidRequest CALED!!!!!!!!!");
       if (this.livingroom.cleanLevel > 0 || this.kitchen.cleanLevel > 0 || this.diningroom.cleanLevel > 0 || this.bedrooms.length > 0 || this.bathroom.length) {
 
         console.log("SUCCESSFUL SUBMISSION");
         console.log("living room is TRUE!: " + this.livingroom.cleanLevel);
         console.log("Number of Bedrooms: " + this.bedrooms.length);
-        console.log("Extra Room 1: " + this.extrarooms[0].name + " clean level: " + this.extrarooms[0].cleanLevel);
+        // console.log("Extra Room 1: " + this.extrarooms[0].name + " clean level: " + this.extrarooms[0].cleanLevel);
         return true;
       }
-
       return false;
     },
 
@@ -43940,9 +44019,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       console.log("Retrieved addresses");
       __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/userdata').then(function (response) {
-        console.log(response.data);
+        // console.log("getSavedAddresses: " + JSON.stringify(response.data));
+        console.log(Object.keys(response.data[0]));
         _this.addresses = response.data;
-        _this.selected = response.data[0];
+        console.log("getSavedAddresses: " + _this.addresses[0].street_address);
+        _this.selected = _this.addresses[0];
         // console.log(this.address[1]);
       }).catch(function (error) {
         console.log(error);
@@ -43992,13 +44073,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.extrarooms.splice(index, 1);
     }
 
-  }, // END METHODS ///////////////
+  }, // END METHODS ///////////////////////////////////////////////////////////////////
 
 
   // LIFECYCLE HOOKS
   created: function created() {
     console.log('Before Monunted');
     this.getSavedAddresses();
+    console.log('Addresses are: ' + this.addresses);
   },
   mounted: function mounted() {
     console.log('Services Component mounted.');
@@ -44016,646 +44098,942 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-        _c("div", { staticClass: "panel panel-default" }, [
-          _c("div", { staticClass: "panel-heading" }, [_vm._v("New Service")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "panel-body" },
-            [
-              _c("p", [
-                _c("b", [_vm._v("Address: ")]),
-                _vm._v(_vm._s(_vm.selected))
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "address-selector" } }, [
-                  _vm._v("Address: ")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selected,
-                        expression: "selected"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "address-selector", required: "" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
+        _vm.addingAddress
+          ? _c(
+              "div",
+              {
+                staticClass: "animated fadeInLeft",
+                attrs: { id: "address-form" }
+              },
+              [
+                _c("div", { staticClass: "panel panel-default" }, [
+                  _c("div", { staticClass: "panel-heading" }, [
+                    _vm._v("New Address")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "panel-body" }, [
+                    _c("div", { staticClass: "form" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-md-4 control-label",
+                            attrs: { for: "add-street-address" }
+                          },
+                          [
+                            _vm._v(
+                              "\n              Street Address\n            "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newStreetAddress,
+                                expression: "newStreetAddress"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "add-street-address", type: "text" },
+                            domProps: { value: _vm.newStreetAddress },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.newStreetAddress = $event.target.value
+                              }
+                            }
                           })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-md-4 control-label",
+                            attrs: { for: "add-city" }
+                          },
+                          [_vm._v("\n                City\n              ")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newCity,
+                                expression: "newCity"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "add-city", type: "text" },
+                            domProps: { value: _vm.newCity },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.newCity = $event.target.value
+                              }
+                            }
                           })
-                        _vm.selected = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  _vm._l(_vm.addresses, function(address) {
-                    return _c("option", [
-                      _vm._v(
-                        "\n                          " +
-                          _vm._s(address) +
-                          "\n                        "
-                      )
-                    ])
-                  })
-                )
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "cleanlevel" } }, [
-                _vm._v("Clean Level: ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.livingroom.cleanLevel,
-                    expression: "livingroom.cleanLevel"
-                  }
-                ],
-                attrs: { type: "radio", value: "1" },
-                domProps: { checked: _vm._q(_vm.livingroom.cleanLevel, "1") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.livingroom, "cleanLevel", "1")
-                  }
-                }
-              }),
-              _vm._v("Standard\n                    "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.livingroom.cleanLevel,
-                    expression: "livingroom.cleanLevel"
-                  }
-                ],
-                attrs: { type: "radio", value: "2" },
-                domProps: { checked: _vm._q(_vm.livingroom.cleanLevel, "2") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.livingroom, "cleanLevel", "2")
-                  }
-                }
-              }),
-              _vm._v("Deluxe\n                    "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.livingroom.cleanLevel,
-                    expression: "livingroom.cleanLevel"
-                  }
-                ],
-                staticClass: "pull-right",
-                attrs: { type: "radio", value: "0" },
-                domProps: { checked: _vm._q(_vm.livingroom.cleanLevel, "0") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.livingroom, "cleanLevel", "0")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "pull-right" }, [_vm._v(" None ")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.livingroom.cleanLevel) +
-                  "\n                    "
-              ),
-              _vm._m(1),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "cleanlevel" } }, [
-                _vm._v("Clean Level: ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.kitchen.cleanLevel,
-                    expression: "kitchen.cleanLevel"
-                  }
-                ],
-                attrs: { type: "radio", value: "1" },
-                domProps: { checked: _vm._q(_vm.kitchen.cleanLevel, "1") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.kitchen, "cleanLevel", "1")
-                  }
-                }
-              }),
-              _vm._v("Standard\n                    "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.kitchen.cleanLevel,
-                    expression: "kitchen.cleanLevel"
-                  }
-                ],
-                attrs: { type: "radio", value: "2" },
-                domProps: { checked: _vm._q(_vm.kitchen.cleanLevel, "2") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.kitchen, "cleanLevel", "2")
-                  }
-                }
-              }),
-              _vm._v("Deluxe\n                    "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.kitchen.cleanLevel,
-                    expression: "kitchen.cleanLevel"
-                  }
-                ],
-                staticClass: "pull-right",
-                attrs: { type: "radio", value: "0" },
-                domProps: { checked: _vm._q(_vm.kitchen.cleanLevel, "0") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.kitchen, "cleanLevel", "0")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "pull-right" }, [_vm._v(" None ")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.kitchen.cleanLevel) +
-                  "\n                    "
-              ),
-              _vm._m(2),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "cleanlevel" } }, [
-                _vm._v("Clean Level: ")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diningroom.cleanLevel,
-                    expression: "diningroom.cleanLevel"
-                  }
-                ],
-                attrs: { type: "radio", value: "1", selected: "true" },
-                domProps: { checked: _vm._q(_vm.diningroom.cleanLevel, "1") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.diningroom, "cleanLevel", "1")
-                  }
-                }
-              }),
-              _vm._v("Standard\n                    "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diningroom.cleanLevel,
-                    expression: "diningroom.cleanLevel"
-                  }
-                ],
-                attrs: { type: "radio", value: "2" },
-                domProps: { checked: _vm._q(_vm.diningroom.cleanLevel, "2") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.diningroom, "cleanLevel", "2")
-                  }
-                }
-              }),
-              _vm._v("Deluxe\n                    "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diningroom.cleanLevel,
-                    expression: "diningroom.cleanLevel"
-                  }
-                ],
-                staticClass: "pull-right",
-                attrs: { type: "radio", value: "0" },
-                domProps: { checked: _vm._q(_vm.diningroom.cleanLevel, "0") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.diningroom, "cleanLevel", "0")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "pull-right" }, [_vm._v(" None ")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.diningroom.cleanLevel) +
-                  "\n\n                    "
-              ),
-              _vm._v(" "),
-              _c("h3", [
-                _c("b", [_vm._v("Bedrooms: " + _vm._s(_vm.bedrooms.length))])
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.bedrooms, function(bedroom, index) {
-                return _c("div", { staticClass: "animated fadeIn" }, [
-                  _c("b", [_c("h4", [_vm._v("Bedroom " + _vm._s(index + 1))])]),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "bedroomname" } }, [
-                    _vm._v("Room Name:")
-                  ]),
-                  _vm._v(" "),
-                  bedroom.errors.length
-                    ? _c("div", { staticClass: "alert alert-danger" }, [
-                        _vm._v(
-                          "\n                        Please enter a description!\n                      "
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: bedroom.name,
-                        expression: "bedroom.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "bedroomname" + (index + 1) },
-                    domProps: { value: bedroom.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(bedroom, "name", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    { staticClass: "radioLabel", attrs: { for: "cleanlevel" } },
-                    [_vm._v("Clean Level: ")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: bedroom.cleanLevel,
-                        expression: "bedroom.cleanLevel"
-                      }
-                    ],
-                    attrs: { type: "radio", value: "1" },
-                    domProps: { checked: _vm._q(bedroom.cleanLevel, "1") },
-                    on: {
-                      change: function($event) {
-                        _vm.$set(bedroom, "cleanLevel", "1")
-                      }
-                    }
-                  }),
-                  _vm._v("Standard\n                      "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: bedroom.cleanLevel,
-                        expression: "bedroom.cleanLevel"
-                      }
-                    ],
-                    attrs: { type: "radio", value: "2" },
-                    domProps: { checked: _vm._q(bedroom.cleanLevel, "2") },
-                    on: {
-                      change: function($event) {
-                        _vm.$set(bedroom, "cleanLevel", "2")
-                      }
-                    }
-                  }),
-                  _vm._v("Deluxe\n                      "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger pull-right",
-                      staticStyle: { cursor: "pointer" },
-                      on: {
-                        click: function($event) {
-                          _vm.removeBedroom(index)
-                        }
-                      }
-                    },
-                    [_vm._v("Remove")]
-                  )
-                ])
-              }),
-              _vm._v(" "),
-              _c("h3", [
-                _c("b", [_vm._v("Bathrooms: " + _vm._s(_vm.bathrooms.length))])
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.bathrooms, function(bathroom, index) {
-                return _c("div", { staticClass: "animated fadeIn" }, [
-                  _c("b", [
-                    _c("h4", [_vm._v("Bathroom " + _vm._s(index + 1))])
-                  ]),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "bathroomname" } }, [
-                    _vm._v("Room Name: ")
-                  ]),
-                  _vm._v(" "),
-                  bathroom.errors.length
-                    ? _c("div", { staticClass: "alert alert-danger" }, [
-                        _vm._v(
-                          "\n                        Please enter a description!\n                      "
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: bathroom.name,
-                        expression: "bathroom.name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "bathroomname" + (index + 1) },
-                    domProps: { value: bathroom.name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(bathroom, "name", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "cleanlevel" } }, [
-                    _vm._v("Clean Level:")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: bathroom.cleanLevel,
-                        expression: "bathroom.cleanLevel"
-                      }
-                    ],
-                    attrs: { type: "radio", value: "1" },
-                    domProps: { checked: _vm._q(bathroom.cleanLevel, "1") },
-                    on: {
-                      change: function($event) {
-                        _vm.$set(bathroom, "cleanLevel", "1")
-                      }
-                    }
-                  }),
-                  _vm._v("Standard\n                      "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: bathroom.cleanLevel,
-                        expression: "bathroom.cleanLevel"
-                      }
-                    ],
-                    attrs: { type: "radio", value: "2" },
-                    domProps: { checked: _vm._q(bathroom.cleanLevel, "2") },
-                    on: {
-                      change: function($event) {
-                        _vm.$set(bathroom, "cleanLevel", "2")
-                      }
-                    }
-                  }),
-                  _vm._v("Deluxe\n\n                      "),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger pull-right",
-                      staticStyle: { cursor: "pointer" },
-                      on: {
-                        click: function($event) {
-                          _vm.removeBathroom(index)
-                        }
-                      }
-                    },
-                    [_vm._v("Remove")]
-                  )
-                ])
-              }),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c("h2", [_vm._v("Extras")]),
-              _vm._v(" "),
-              _vm._l(_vm.extrarooms, function(extraroom, index) {
-                return _c(
-                  "div",
-                  {
-                    staticClass: "animated fadeIn",
-                    attrs: { id: "extraroomId" + (index + 1) }
-                  },
-                  [
-                    _c("b", [
-                      _c("h4", [_vm._v("Extraroom " + _vm._s(index + 1))])
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "extraroomname" } }, [
-                      _vm._v("Room Name: ")
-                    ]),
-                    _vm._v(" "),
-                    extraroom.errors.length
-                      ? _c("div", { staticClass: "alert alert-danger" }, [
-                          _vm._v(
-                            "\n                        Please enter a description!\n                      "
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("New City is: " + _vm._s(_vm.newCity))]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-md-4 control-label",
+                            attrs: { for: "add-state" }
+                          },
+                          [_vm._v("\n              State\n            ")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.stateSelected,
+                                  expression: "stateSelected"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { id: "add-state" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.stateSelected = $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                }
+                              }
+                            },
+                            _vm._l(_vm.states, function(state) {
+                              return _c(
+                                "option",
+                                { domProps: { value: state } },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(state.state) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            })
                           )
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: extraroom.name,
-                          expression: "extraroom.name"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { id: "extraroomname" + (index + 1) },
-                      domProps: { value: extraroom.name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(extraroom, "name", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "cleanlevel" } }, [
-                      _vm._v("Clean Level:")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: extraroom.cleanLevel,
-                          expression: "extraroom.cleanLevel"
-                        }
-                      ],
-                      attrs: { type: "radio", value: "1" },
-                      domProps: { checked: _vm._q(extraroom.cleanLevel, "1") },
-                      on: {
-                        change: function($event) {
-                          _vm.$set(extraroom, "cleanLevel", "1")
-                        }
-                      }
-                    }),
-                    _vm._v("Standard\n                      "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: extraroom.cleanLevel,
-                          expression: "extraroom.cleanLevel"
-                        }
-                      ],
-                      attrs: { type: "radio", value: "2" },
-                      domProps: { checked: _vm._q(extraroom.cleanLevel, "2") },
-                      on: {
-                        change: function($event) {
-                          _vm.$set(extraroom, "cleanLevel", "2")
-                        }
-                      }
-                    }),
-                    _vm._v("Deluxe\n                      "),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger pull-right",
-                        staticStyle: { cursor: "pointer" },
-                        on: {
-                          click: function($event) {
-                            _vm.removeExtraroom(index)
-                          }
-                        }
-                      },
-                      [_vm._v("Remove")]
-                    )
-                  ]
-                )
-              }),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { disabled: this.bedrooms.length > 9 },
-                  on: { click: _vm.addBedroomRow }
-                },
-                [_vm._v("Add Bedroom")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { disabled: this.bathrooms.length > 4 },
-                  on: { click: _vm.addBathroomRow }
-                },
-                [_vm._v("Add Bathroom")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { disabled: this.extrarooms.length > 1 },
-                  on: { click: _vm.addExtraroomRow }
-                },
-                [_vm._v("Add Extra Room")]
-              ),
-              _vm._v(" "),
-              _c("br"),
-              _c("br"),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: {
-                    disabled:
-                      this.bedrooms.length < 1 &&
-                      this.bathrooms.length < 1 &&
-                      this.livingroom.cleanLevel < 1 &&
-                      this.kitchen.cleanLevel < 1 &&
-                      this.diningroom.cleanLevel < 1
-                  },
-                  on: { click: _vm.submitRequest }
-                },
-                [_vm._v("Submit Request")]
-              )
-            ],
-            2
-          )
-        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-md-4 control-label",
+                            attrs: { for: "add-zip" }
+                          },
+                          [_vm._v("\n              Zip Code\n            ")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newZip,
+                                expression: "newZip"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              pattern: "[0-9]{5}",
+                              id: "add-zip",
+                              type: "text"
+                            },
+                            domProps: { value: _vm.newZip },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.newZip = $event.target.value
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("br")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-light",
+                      on: { click: _vm.addAddressToDatabase }
+                    },
+                    [_c("span", [_vm._v("Add Address")])]
+                  )
+                ])
+              ]
+            )
+          : _vm._e()
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    !_vm.addingAddress
+      ? _c(
+          "div",
+          {
+            staticClass: "animated fadeInRight",
+            attrs: { id: "submission-form" }
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+                _c("div", { staticClass: "panel panel-default" }, [
+                  _c("div", { staticClass: "panel-heading" }, [
+                    _vm._v("New Service")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "panel-body" },
+                    [
+                      _c("h4", [
+                        _c("b", [_vm._v("Address: ")]),
+                        _vm._v(_vm._s(_vm.selected.street_address))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "address-selector" } }, [
+                          _vm._v("Address: ")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selected,
+                                expression: "selected"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "address-selector", required: "" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.selected = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          _vm._l(_vm.addresses, function(address) {
+                            return _c(
+                              "option",
+                              { domProps: { value: address } },
+                              [
+                                _vm._v(
+                                  "\n                        " +
+                                    _vm._s(address.street_address) +
+                                    "\n                        "
+                                )
+                              ]
+                            )
+                          })
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-light",
+                            on: { click: _vm.changePanel }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        New Address\n                      "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "cleanlevel" } }, [
+                        _vm._v("Clean Level: ")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.livingroom.cleanLevel,
+                            expression: "livingroom.cleanLevel"
+                          }
+                        ],
+                        attrs: { type: "radio", value: "1" },
+                        domProps: {
+                          checked: _vm._q(_vm.livingroom.cleanLevel, "1")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.livingroom, "cleanLevel", "1")
+                          }
+                        }
+                      }),
+                      _vm._v("Standard\n                    "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.livingroom.cleanLevel,
+                            expression: "livingroom.cleanLevel"
+                          }
+                        ],
+                        attrs: { type: "radio", value: "2" },
+                        domProps: {
+                          checked: _vm._q(_vm.livingroom.cleanLevel, "2")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.livingroom, "cleanLevel", "2")
+                          }
+                        }
+                      }),
+                      _vm._v("Deluxe\n                    "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.livingroom.cleanLevel,
+                            expression: "livingroom.cleanLevel"
+                          }
+                        ],
+                        staticClass: "pull-right",
+                        attrs: { type: "radio", value: "0" },
+                        domProps: {
+                          checked: _vm._q(_vm.livingroom.cleanLevel, "0")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.livingroom, "cleanLevel", "0")
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "pull-right" }, [
+                        _vm._v(" None ")
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.livingroom.cleanLevel) +
+                          "\n                    "
+                      ),
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "cleanlevel" } }, [
+                        _vm._v("Clean Level: ")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.kitchen.cleanLevel,
+                            expression: "kitchen.cleanLevel"
+                          }
+                        ],
+                        attrs: { type: "radio", value: "1" },
+                        domProps: {
+                          checked: _vm._q(_vm.kitchen.cleanLevel, "1")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.kitchen, "cleanLevel", "1")
+                          }
+                        }
+                      }),
+                      _vm._v("Standard\n                    "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.kitchen.cleanLevel,
+                            expression: "kitchen.cleanLevel"
+                          }
+                        ],
+                        attrs: { type: "radio", value: "2" },
+                        domProps: {
+                          checked: _vm._q(_vm.kitchen.cleanLevel, "2")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.kitchen, "cleanLevel", "2")
+                          }
+                        }
+                      }),
+                      _vm._v("Deluxe\n                    "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.kitchen.cleanLevel,
+                            expression: "kitchen.cleanLevel"
+                          }
+                        ],
+                        staticClass: "pull-right",
+                        attrs: { type: "radio", value: "0" },
+                        domProps: {
+                          checked: _vm._q(_vm.kitchen.cleanLevel, "0")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.kitchen, "cleanLevel", "0")
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "pull-right" }, [
+                        _vm._v(" None ")
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.kitchen.cleanLevel) +
+                          "\n                    "
+                      ),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "cleanlevel" } }, [
+                        _vm._v("Clean Level: ")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.diningroom.cleanLevel,
+                            expression: "diningroom.cleanLevel"
+                          }
+                        ],
+                        attrs: { type: "radio", value: "1", selected: "true" },
+                        domProps: {
+                          checked: _vm._q(_vm.diningroom.cleanLevel, "1")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.diningroom, "cleanLevel", "1")
+                          }
+                        }
+                      }),
+                      _vm._v("Standard\n                    "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.diningroom.cleanLevel,
+                            expression: "diningroom.cleanLevel"
+                          }
+                        ],
+                        attrs: { type: "radio", value: "2" },
+                        domProps: {
+                          checked: _vm._q(_vm.diningroom.cleanLevel, "2")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.diningroom, "cleanLevel", "2")
+                          }
+                        }
+                      }),
+                      _vm._v("Deluxe\n                    "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.diningroom.cleanLevel,
+                            expression: "diningroom.cleanLevel"
+                          }
+                        ],
+                        staticClass: "pull-right",
+                        attrs: { type: "radio", value: "0" },
+                        domProps: {
+                          checked: _vm._q(_vm.diningroom.cleanLevel, "0")
+                        },
+                        on: {
+                          change: function($event) {
+                            _vm.$set(_vm.diningroom, "cleanLevel", "0")
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "pull-right" }, [
+                        _vm._v(" None ")
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(_vm.diningroom.cleanLevel) +
+                          "\n\n                    "
+                      ),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _c("b", [
+                          _vm._v("Bedrooms: " + _vm._s(_vm.bedrooms.length))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.bedrooms, function(bedroom, index) {
+                        return _c("div", { staticClass: "animated fadeIn" }, [
+                          _c("b", [
+                            _c("h4", [_vm._v("Bedroom " + _vm._s(index + 1))])
+                          ]),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "bedroomname" } }, [
+                            _vm._v("Room Name:")
+                          ]),
+                          _vm._v(" "),
+                          bedroom.errors.length
+                            ? _c("div", { staticClass: "alert alert-danger" }, [
+                                _vm._v(
+                                  "\n                        Please enter a description!\n                      "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: bedroom.name,
+                                expression: "bedroom.name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "bedroomname" + (index + 1) },
+                            domProps: { value: bedroom.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(bedroom, "name", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "radioLabel",
+                              attrs: { for: "cleanlevel" }
+                            },
+                            [_vm._v("Clean Level: ")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: bedroom.cleanLevel,
+                                expression: "bedroom.cleanLevel"
+                              }
+                            ],
+                            attrs: { type: "radio", value: "1" },
+                            domProps: {
+                              checked: _vm._q(bedroom.cleanLevel, "1")
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.$set(bedroom, "cleanLevel", "1")
+                              }
+                            }
+                          }),
+                          _vm._v("Standard\n                      "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: bedroom.cleanLevel,
+                                expression: "bedroom.cleanLevel"
+                              }
+                            ],
+                            attrs: { type: "radio", value: "2" },
+                            domProps: {
+                              checked: _vm._q(bedroom.cleanLevel, "2")
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.$set(bedroom, "cleanLevel", "2")
+                              }
+                            }
+                          }),
+                          _vm._v("Deluxe\n                      "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger pull-right",
+                              staticStyle: { cursor: "pointer" },
+                              on: {
+                                click: function($event) {
+                                  _vm.removeBedroom(index)
+                                }
+                              }
+                            },
+                            [_vm._v("Remove")]
+                          )
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("h3", [
+                        _c("b", [
+                          _vm._v("Bathrooms: " + _vm._s(_vm.bathrooms.length))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.bathrooms, function(bathroom, index) {
+                        return _c("div", { staticClass: "animated fadeIn" }, [
+                          _c("b", [
+                            _c("h4", [_vm._v("Bathroom " + _vm._s(index + 1))])
+                          ]),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "bathroomname" } }, [
+                            _vm._v("Room Name: ")
+                          ]),
+                          _vm._v(" "),
+                          bathroom.errors.length
+                            ? _c("div", { staticClass: "alert alert-danger" }, [
+                                _vm._v(
+                                  "\n                        Please enter a description!\n                      "
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: bathroom.name,
+                                expression: "bathroom.name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: { id: "bathroomname" + (index + 1) },
+                            domProps: { value: bathroom.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(bathroom, "name", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "cleanlevel" } }, [
+                            _vm._v("Clean Level:")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: bathroom.cleanLevel,
+                                expression: "bathroom.cleanLevel"
+                              }
+                            ],
+                            attrs: { type: "radio", value: "1" },
+                            domProps: {
+                              checked: _vm._q(bathroom.cleanLevel, "1")
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.$set(bathroom, "cleanLevel", "1")
+                              }
+                            }
+                          }),
+                          _vm._v("Standard\n                      "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: bathroom.cleanLevel,
+                                expression: "bathroom.cleanLevel"
+                              }
+                            ],
+                            attrs: { type: "radio", value: "2" },
+                            domProps: {
+                              checked: _vm._q(bathroom.cleanLevel, "2")
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.$set(bathroom, "cleanLevel", "2")
+                              }
+                            }
+                          }),
+                          _vm._v("Deluxe\n\n                      "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger pull-right",
+                              staticStyle: { cursor: "pointer" },
+                              on: {
+                                click: function($event) {
+                                  _vm.removeBathroom(index)
+                                }
+                              }
+                            },
+                            [_vm._v("Remove")]
+                          )
+                        ])
+                      }),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c("h2", [_vm._v("Extras")]),
+                      _vm._v(" "),
+                      _vm._l(_vm.extrarooms, function(extraroom, index) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass: "animated fadeIn",
+                            attrs: { id: "extraroomId" + (index + 1) }
+                          },
+                          [
+                            _c("b", [
+                              _c("h4", [
+                                _vm._v("Extraroom " + _vm._s(index + 1))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("label", { attrs: { for: "extraroomname" } }, [
+                              _vm._v("Room Name: ")
+                            ]),
+                            _vm._v(" "),
+                            extraroom.errors.length
+                              ? _c(
+                                  "div",
+                                  { staticClass: "alert alert-danger" },
+                                  [
+                                    _vm._v(
+                                      "\n                        Please enter a description!\n                      "
+                                    )
+                                  ]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: extraroom.name,
+                                  expression: "extraroom.name"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { id: "extraroomname" + (index + 1) },
+                              domProps: { value: extraroom.name },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    extraroom,
+                                    "name",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("label", { attrs: { for: "cleanlevel" } }, [
+                              _vm._v("Clean Level:")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: extraroom.cleanLevel,
+                                  expression: "extraroom.cleanLevel"
+                                }
+                              ],
+                              attrs: { type: "radio", value: "1" },
+                              domProps: {
+                                checked: _vm._q(extraroom.cleanLevel, "1")
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.$set(extraroom, "cleanLevel", "1")
+                                }
+                              }
+                            }),
+                            _vm._v("Standard\n                      "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: extraroom.cleanLevel,
+                                  expression: "extraroom.cleanLevel"
+                                }
+                              ],
+                              attrs: { type: "radio", value: "2" },
+                              domProps: {
+                                checked: _vm._q(extraroom.cleanLevel, "2")
+                              },
+                              on: {
+                                change: function($event) {
+                                  _vm.$set(extraroom, "cleanLevel", "2")
+                                }
+                              }
+                            }),
+                            _vm._v("Deluxe\n                      "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger pull-right",
+                                staticStyle: { cursor: "pointer" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.removeExtraroom(index)
+                                  }
+                                }
+                              },
+                              [_vm._v("Remove")]
+                            )
+                          ]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-default",
+                          attrs: { disabled: this.bedrooms.length > 9 },
+                          on: { click: _vm.addBedroomRow }
+                        },
+                        [_vm._v("Add Bedroom")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-default",
+                          attrs: { disabled: this.bathrooms.length > 4 },
+                          on: { click: _vm.addBathroomRow }
+                        },
+                        [_vm._v("Add Bathroom")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-default",
+                          attrs: { disabled: this.extrarooms.length > 1 },
+                          on: { click: _vm.addExtraroomRow }
+                        },
+                        [_vm._v("Add Extra Room")]
+                      ),
+                      _vm._v(" "),
+                      _c("br"),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: {
+                            disabled:
+                              this.bedrooms.length < 1 &&
+                              this.bathrooms.length < 1 &&
+                              this.livingroom.cleanLevel < 1 &&
+                              this.kitchen.cleanLevel < 1 &&
+                              this.diningroom.cleanLevel < 1
+                          },
+                          on: { click: _vm.submitRequest }
+                        },
+                        [_vm._v("Submit Request")]
+                      )
+                    ],
+                    2
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -44696,11 +45074,332 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(48)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(50)
 /* template */
 var __vue_template__ = __webpack_require__(51)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/AddAddressComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-86cc287a", Component.options)
+  } else {
+    hotAPI.reload("data-v-86cc287a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(49);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("0d5a1d85", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-86cc287a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AddAddressComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-86cc287a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./AddAddressComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      addingAddress: true
+    };
+  },
+
+
+  methods: {
+    foo: function foo() {
+      this.addingAddress = !this.addingAddress;
+    }
+  },
+  mounted: function mounted() {
+    console.log('Add Address Component mounted.');
+  }
+});
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    !_vm.addingAddress
+      ? _c(
+          "div",
+          {
+            staticClass: "animated fadeInRight",
+            attrs: { id: "submission-form" }
+          },
+          [_c("services")],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [_vm._v("New Address")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-light", on: { click: _vm.foo } },
+              [_c("span", [_vm._v("Add Address")])]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form" }, [
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "label",
+          {
+            staticClass: "col-md-4 control-label",
+            attrs: { for: "add-street-address" }
+          },
+          [_vm._v("\n                Street Address\n              ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { id: "add-city", type: "text" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "label",
+          { staticClass: "col-md-4 control-label", attrs: { for: "add-city" } },
+          [_vm._v("\n                City\n              ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { id: "add-city", type: "text" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "label",
+          {
+            staticClass: "col-md-4 control-label",
+            attrs: { for: "add-state" }
+          },
+          [_vm._v("\n                State\n              ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { id: "add-zip", type: "text" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c(
+          "label",
+          { staticClass: "col-md-4 control-label", attrs: { for: "add-zip" } },
+          [_vm._v("\n                Zip Code\n              ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { id: "add-zip", type: "text" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-86cc287a", module.exports)
+  }
+}
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(53)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(55)
+/* template */
+var __vue_template__ = __webpack_require__(56)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44739,17 +45438,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(49);
+var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2a28cc49", content, false, {});
+var update = __webpack_require__(2)("2a28cc49", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -44765,10 +45464,10 @@ if(false) {
 }
 
 /***/ }),
-/* 49 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -44779,7 +45478,7 @@ exports.push([module.i, "\n.action-link[data-v-5d1d7d82] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 50 */
+/* 55 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45143,7 +45842,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 51 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -45704,19 +46403,19 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(53)
+  __webpack_require__(58)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(55)
+var __vue_script__ = __webpack_require__(60)
 /* template */
-var __vue_template__ = __webpack_require__(56)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -45755,17 +46454,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 53 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(54);
+var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("10846595", content, false, {});
+var update = __webpack_require__(2)("10846595", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -45781,10 +46480,10 @@ if(false) {
 }
 
 /***/ }),
-/* 54 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -45795,7 +46494,7 @@ exports.push([module.i, "\n.action-link[data-v-2ee9fe67] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 55 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45915,7 +46614,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 56 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -46024,19 +46723,19 @@ if (false) {
 }
 
 /***/ }),
-/* 57 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(58)
+  __webpack_require__(63)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(60)
+var __vue_script__ = __webpack_require__(65)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(66)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -46075,17 +46774,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 58 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(59);
+var content = __webpack_require__(64);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("4e7bd74e", content, false, {});
+var update = __webpack_require__(2)("4e7bd74e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46101,10 +46800,10 @@ if(false) {
 }
 
 /***/ }),
-/* 59 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -46115,7 +46814,7 @@ exports.push([module.i, "\n.action-link[data-v-89c53f18] {\n    cursor: pointer;
 
 
 /***/ }),
-/* 60 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46437,7 +47136,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 61 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -46815,7 +47514,7 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
+/* 67 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

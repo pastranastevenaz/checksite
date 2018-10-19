@@ -34,9 +34,14 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 //
+
 Vue.component(
   'services',
   require('./components/SerivcesComponent.vue')
+);
+Vue.component(
+  'addAddress',
+  require('./components/AddAddressComponent.vue')
 );
 
 Vue.component(
