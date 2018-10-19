@@ -1,24 +1,107 @@
 <template>
+
   <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="animated fadeInLeft" id="address-form" v-if="addingAddress">
+          <div class="panel panel-default">
+            <div class="panel-heading">New Address</div>
+            <div class="panel-body">
+
+
+              <div class="form">
+
+
+              <div class="form-group">
+              <label for="add-street-address" class="col-md-4 control-label">
+                Street Address
+              </label>
+              <div class="col-md-6">
+                <input id="add-street-address" type="text" class="form-control" v-model="newStreetAddress">
+              </div>
+              </div>
+
+              <div class="form-group">
+                <label for="add-city" class="col-md-4 control-label">
+                  City
+                </label>
+                <div class="col-md-6">
+                  <input id="add-city" type="text" class="form-control" v-model="newCity">
+                </div>
+              </div>
+              <br>
+              <p>New City is: {{newCity}}</p>
+
+
+              <div class="form-group">
+              <label for="add-state" class="col-md-4 control-label">
+                State
+              </label>
+              <div class="col-md-6">
+                <!-- <input id="add-zip" type="text" class="form-control"> -->
+                <select id="add-state" class="form-control" v-model="stateSelected">
+                  <option v-for="state in states" v-bind:value="state">
+                    {{ state.state }}
+                  </option>
+                </select>
+              </div>
+              </div>
+
+
+              <div class="form-group">
+              <label for="add-zip" class="col-md-4 control-label">
+                Zip Code
+              </label>
+              <div class="col-md-6">
+                <input pattern="[0-9]{5}" id="add-zip" type="text" class="form-control" v-model="newZip">
+              </div>
+              </div>
+
+              <br>
+
+            </div>
+
+          </div>
+          <button v-on:click="addAddressToDatabase" class="btn btn-light">
+            <span>Add Address</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="animated fadeInRight" id="submission-form" v-if="!addingAddress">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
                   <div class="panel-heading">New Service</div>
 
                   <div class="panel-body">
-                      <p><b>Address: </b>{{ selected }}</p>
+                      <h4><b>Address: </b>{{ selected.street_address}}</h4>
                       <div class="form-group">
                         <label for="address-selector">Address: </label>
+
                         <select id="address-selector" class="form-control" v-model="selected" required>
-                          <option v-for="address in addresses">
-                            {{ address }}
+                          <option v-for="address in addresses" v-bind:value="address">
+                          {{ address.street_address }}
                           </option>
                         </select>
+
+                        <button v-on:click="changePanel" class="btn btn-light">
+                          New Address
+                        </button>
+
                       </div>
+
+
+
+
                       <br>
 
                       <!-- ##################  -->
-                      <!-- # OTHER ROOM SECTION-->
+                      <!-- # Main ROOM SECTIONS-->
                       <!-- #                   -->
                       <h4><b>Living Room: </b></h4>
                       <label for="cleanlevel">Clean Level: </label>
@@ -121,8 +204,6 @@
 
 
 
-
-
                       <button class="btn btn-default" v-on:click="addBedroomRow"
                               :disabled="this.bedrooms.length > 9">Add Bedroom</button>
                       <button class="btn btn-default" v-on:click="addBathroomRow"
@@ -137,6 +218,7 @@
               </div>
           </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -147,8 +229,13 @@ import axios from 'axios';
 export default {
     data() {
       return{
+        addingAddress: false,
         errors: [],
         selected: "",
+
+        city: "",
+        state: "",
+
         addresses: [],
         livingroom: {
           cleanLevel: "1"
@@ -161,16 +248,105 @@ export default {
         },
         bedrooms: [],
         bathrooms: [],
-        extrarooms: []
+        extrarooms: [],
+        stateSelected: {},
+        newStreetAddress: "",
+        newCity: "",
+        newZip: "",
+        states: [
+          {'abr':'AL', 'state': 'Alabama'},
+          {'abr':'AK', 'state': 'Alaska'},
+          {'abr':'AZ', 'state': 'Arizona'},
+          {'abr':'AR', 'state': 'Arkansas'},
+          {'abr':'CA', 'state': 'California'},
+          {'abr':'CO', 'state': 'Colorodo'},
+          {'abr':'CT', 'state': 'Connecticut'},
+
+          {'abr':'DE', 'state': 'Delaware'},
+          {'abr':'DC', 'state': 'District of Columbia'},
+          {'abr':'FL', 'state': 'Florida'},
+          {'abr':'GA', 'state': 'Georgia'},
+          {'abr':'HI', 'state': 'Hawaii'},
+          {'abr':'ID', 'state': 'Idaho'},
+          {'abr':'IL', 'state': 'Illinois'},
+
+          {'abr':'IN', 'state': 'Indiana'},
+          {'abr':'IA', 'state': 'Iowa'},
+          {'abr':'KS', 'state': 'Kansas'},
+          {'abr':'KY', 'state': 'Kentucky'},
+          {'abr':'ME', 'state': 'Maine'},
+          {'abr':'MD', 'state': 'Maryland'},
+          {'abr':'MA', 'state': 'Massachusetts'},
+
+          {'abr':'MI', 'state': 'Michigan'},
+          {'abr':'MN', 'state': 'Minnesota'},
+          {'abr':'MS', 'state': 'Mississippi'},
+          {'abr':'MO', 'state': 'Missouri'},
+          {'abr':'MT', 'state': 'Montana'},
+          {'abr':'NE', 'state': 'Nebraska'},
+          {'abr':'NV', 'state': 'Nevada'},
+
+          {'abr':'NH', 'state': 'New Hampshire'},
+          {'abr':'NJ', 'state': 'New Jersey'},
+          {'abr':'NM', 'state': 'New Mexico'},
+          {'abr':'NY', 'state': 'New York'},
+          {'abr':'NC', 'state': 'North Carolina'},
+          {'abr':'ND', 'state': 'North Dakota'},
+          {'abr':'OH', 'state': 'Ohio'},
+          {'abr':'OK', 'state': 'Oklahoma'},
+          {'abr':'OR', 'state': 'Oregon'},
+          {'abr':'PA', 'state': 'Pennsylvania'},
+          {'abr':'PR', 'state': 'Puerto Rico'},
+          {'abr':'RI', 'state': 'Rhode Island'},
+          {'abr':'SC', 'state': 'South Carolina'},
+          {'abr':'SD', 'state': 'South Dakota'},
+
+          {'abr':'TN', 'state': 'Tennessee'},
+          {'abr':'TX', 'state': 'Texas'},
+          {'abr':'UT', 'state': 'Utah'},
+          {'abr':'VT', 'state': 'Vermont'},
+          {'abr':'VA', 'state': 'Virgina'},
+          {'abr':'WA', 'state': 'Washington'},
+          {'abr':'WV', 'state': 'West Virginia'},
+          {'abr':'WI', 'state': 'Wisconsin'},
+          {'abr':'WY', 'state': 'Wyoming'},
+
+        ]
       }
     },
-    methods:{
 
-      // checkForm: function
+    methods: {
+      changePanel: function () {
+        this.addingAddress = !this.addingAddress;
+        this.addingAddress ?
+          console.log("Swiutched to address add form") :
+          console.log("Added an address");
+      },
+      foo2: function () {
+        console.log("New address added "+ this.newStreetAddress + " " + this.newCity + " " + this.stateSelected.abr + " " + this.newZip);
+        this.changePanel();
+      },
+      addAddressToDatabase: function () {
+        let newAddress = {
+          _streetAddress: this.newStreetAddress,
+          _city: this.newCity,
+          _state: this.stateSelected,
+          _zip: this.newZip
+        }
+        console.log(newAddress);
+        this.changePanel();
+        // TODO Add the code to add the address to the database for the auth user
+      },
       makeRequest: function () {
         console.log("MAKE REQUEST FUNCTION CALLED!!!");
+        console.log("MAKEREQUEST SELECTED: "+this.selected);
         let data = {
-          street_address: this.selected,
+          street_address: this.selected.street_address,
+          city: this.selected.city,
+          state: this.selected.state,
+          zip: this.selected.zip,
+          lat: this.selected.lat,
+          long: this.selected.long,
           livingroom: this.livingroom.cleanLevel,
           kitchen: this.kitchen.cleanLevel,
           diningroom: this.diningroom.cleanLevel,
@@ -196,22 +372,12 @@ export default {
           extraroom2_name: this.extrarooms[1] ? this.extrarooms[1].name : "",
           extraroom2_level: this.extrarooms[1] ? this.extrarooms[1].cleanLevel : 0,
         }
+        console.log(data);
         axios.post('/services/store',data)
           .then(response => {
             console.log(response.data);
             // window.location.replace("/dashboard");
           })
-        // axios.post('/services/store', data, {
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   }
-        // })
-        //   .then(response => {
-        //     console.log(response);
-        //   })
-        //   .catch(error => {
-        //     console.log(error);
-        //   })
 
         // CLEAR THE FIELDS
         this.bedrooms = [];
@@ -220,59 +386,32 @@ export default {
       },
 
       submitRequest: function () {
-        // let noErrors = false;
         this.errors = [];
         // console.log("Address is: "+this.selected);
-
         for(var i=0; i<this.bedrooms.length; i++){
           if(!this.bedrooms[i].name){
             this.bedrooms[i].errors = "This is an error";
-            // console.log(this.bedrooms.errors);
-            // noErrors = false;
             this.errors.push('error bedroom: '+i);
           }else{
-            // console.log(this.bedrooms[i]);
-            // noErrors = true;
           }
         }
-
         for(var n=0; n<this.bathrooms.length; n++){
           if(!this.bathrooms[n].name){
             this.bathrooms[n].errors = "This is an error";
-            // noErrors = false;
             this.errors.push('error bathroom: '+n);
           }else{
-            // noErrors = true;
           }
         }
-
         for(var j=0; j<this.extrarooms.length; j++){
           if(!this.extrarooms[j].name){
             this.extrarooms[j].errors = "This is an error";
-            // noErrors = false;
             this.errors.push('error extraroom: '+j);
           }else{
-            // noErrors = true;
           }
         }
-
-
-
         console.log("Total errors: "+this.errors.length);
         if (this.errors.length < 1){
-
-          // var t0 = performance.now();
           this.isValidRequest();
-          // var t1 = performance.now();
-          // console.log("Call to do ANother thing took " + (t1 - t0) + " milliseconds.")
-
-
-          // console.log("Submitted "+this.bedrooms.length+" bedrooms & "+this.bathrooms.length+ " bathrooms");
-          // console.log("Bedroom " +(i+1)+": "+ this.bedrooms[i].name+"| Clean Level: "+ this.bedrooms[i].cleanLevel);
-          // console.log("bathroom "+(n+1)+": "+ this.bathrooms[n].name + "| Clean Level: " + this.bathrooms[n].cleanLevel);
-          // console.log("Bedrooms: "+this.bedrooms[0].cleanLevel);
-          // this.bedrooms = [];
-          // this.bathrooms = [];
         }else{
           console.log(this.errors.length+" SUBMISSION HAS AN ERROR");
         }
@@ -280,7 +419,7 @@ export default {
       },
 
       isValidRequest: function () {
-        // console.log("isValidFucntion CALED!!!!!!!!!");
+        // console.log("isValidRequest CALED!!!!!!!!!");
         if (this.livingroom.cleanLevel > 0  || this.kitchen.cleanLevel > 0 ||
             this.diningroom.cleanLevel > 0 || this.bedrooms.length > 0 ||
                                               this.bathroom.length){
@@ -288,22 +427,21 @@ export default {
           console.log("SUCCESSFUL SUBMISSION");
           console.log("living room is TRUE!: " +  this.livingroom.cleanLevel);
           console.log("Number of Bedrooms: " + this.bedrooms.length);
-          console.log("Extra Room 1: " + this.extrarooms[0].name + " clean level: " + this.extrarooms[0].cleanLevel);
+          // console.log("Extra Room 1: " + this.extrarooms[0].name + " clean level: " + this.extrarooms[0].cleanLevel);
           return true;
         }
-
         return false;
-
       },
-
 
       getSavedAddresses: function () {
         console.log("Retrieved addresses");
         axios.get('/userdata')
         .then(response =>{
-          console.log(response.data);
+          // console.log("getSavedAddresses: " + JSON.stringify(response.data));
+          console.log( Object.keys(response.data[0]));
           this.addresses = response.data;
-          this.selected = response.data[0];
+          console.log("getSavedAddresses: " + this.addresses[0].street_address);
+          this.selected = this.addresses[0];
           // console.log(this.address[1]);
         })
         .catch(error =>{
@@ -357,7 +495,7 @@ export default {
           this.extrarooms.splice(index, 1);
         },
 
-    },  // END METHODS ///////////////
+    },  // END METHODS ///////////////////////////////////////////////////////////////////
 
 
 
@@ -366,6 +504,7 @@ export default {
     created() {
       console.log('Before Monunted');
       this.getSavedAddresses();
+      console.log('Addresses are: ' + this.addresses);
     },
     mounted() {
         console.log('Services Component mounted.');

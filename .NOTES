@@ -72,3 +72,5 @@ php artisan passport:keys
 Before deploying
 
 Turn off Less then greater then console.log from assets/js/app/js
+
+Make sure to add a way to verify that only valid addresses are added during registration and adding new addresses

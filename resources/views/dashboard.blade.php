@@ -73,7 +73,7 @@
                       </li>
                       <li>
                         <p class=""><b>Street Address: </b>
-                        <span>{{ ucfirst(Auth::user()->street_address) }}</span></p>
+                        <span>{{ ucfirst($address->street_address) }}</span></p>
                       </li>
 
 
@@ -85,17 +85,17 @@
 
                       <li>
                         <p class=""><b>City: </b>
-                        <span>{{ ucfirst(Auth::user()->city) }}</span></p>
+                        <span>{{ ucfirst($address->city) }}</span></p>
                       </li>
 
                       <li>
                         <p class=""><b>State: </b>
-                        <span>{{ ucfirst(Auth::user()->state) }}</span></p>
+                        <span>{{ ucfirst($address->state) }}</span></p>
                       </li>
 
                       <li>
                         <p class=""><b>ZIP: </b>
-                        <span>{{ ucfirst(Auth::user()->zip) }}</span></p>
+                        <span>{{ ucfirst($address->zip) }}</span></p>
                       </li>
 
                     </ul>
