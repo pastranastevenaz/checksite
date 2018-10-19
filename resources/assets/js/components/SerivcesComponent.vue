@@ -334,6 +334,10 @@ export default {
           _zip: this.newZip
         }
         console.log(newAddress);
+        axios.post('/services/addressadd', newAddress)
+          .then(response => {
+            console.log(response.data);
+          })
         this.changePanel();
         // TODO Add the code to add the address to the database for the auth user
       },

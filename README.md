@@ -104,3 +104,22 @@ Not sure what I'll work on tomorrow, but I'm looking forward to it.
 
 
 I decided to use this codebase as the codebase for the house cleaning app.
+
+#### 2018-10-19
+
+I haven't appended to the journal in quite some time, but I've added quite a bit
+to this app in the last coupke of months. Although, progress is still slow. I've
+added the features to register the user. I've added the feature to request a service,
+which is all done using Ajax, via VueJS. Lately I've been working on a feature where
+a client can add a new address while in the middle of requesting a service. So far I
+have the DOM updating correctly. When the address form is filled out, I have it
+console log the address data. Next I need to work on sending that data to the server.
+
+Once the address data gets to the server, I must validate it, and get the geolocation,
+and then save all tha tdata to the server, and be certain to link that to the
+Authenticated user's profile.
+
+This project has been quite a long trudge. I've recently also started experimenting
+with Flutter. I think I'm going to use that as the application framework for the
+mobile app. Although, I'm on the fence, since I'm already proficient with JS. Time
+will tell.  
