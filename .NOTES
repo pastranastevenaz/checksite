@@ -42,6 +42,15 @@ php artisan config:cache
 
 
 
+
+php artisan config:clear
+php artisan cache:clear
+composer dump-autoload
+php artisan view:clear
+php artisan route:clear
+
+
+
 KIll Server:
 sudo kill $(sudo netstat -tlnp | awk '/:8000 */ {split($NF,a,"/"); print a[1]}')
 

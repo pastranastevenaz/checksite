@@ -1,0 +1,23 @@
+h3.red-text{
+  color: #f0384f !important;
+  text-shadow: none;
+}
+h4.red-text{
+  color: #f0384f !important;
+}
+
+.card-section{
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.founder-image{
+  height: 160px;
+}
+ul.id-card-list{
+  list-style-type: none;
+  margin-left: 25%;
+}
+li.id-card-list-item::before {
+  content: "• ";
+  color: #f0384f; /* or whatever color you prefer */
+}

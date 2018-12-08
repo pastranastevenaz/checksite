@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Address;
+use App\Website;
+use App\Ticket;
+// use App\Address;
 // use Illuminate\Support\Fascades\Storage;
 use Storage;
 
@@ -29,14 +31,22 @@ class DashboardController extends Controller
   {
     $user_id = auth()->user()->id;
     $user = User::find($user_id);
-    $address = Address::find($user)->where('owner_id', '=', $user_id)->first();
+    $websites = Website::all()->where('user_id', '==', $user_id);
+    $tickets = Ticket::all()->where('user_id', '==', $user_id);
+    // $addresses = Address::all();
+    // $address = Address::all()->where('owner_id', '==', $user_id)->first();
     // Returning in a variable called posts, all the
     // posts associated with the currrent user
     // return view('dashboard')->with('posts', $user->posts);
     // return view('dashboard');
+    // return $address;
+    // return $user->website;
+    // return $tickets;
     return view('dashboard',[
       'user'=> $user,
-      'address' => $address
+      'websites' => $websites,
+      'tickets' => $tickets
+      // 'address' => $address
       // 'now' => $now
     ]);
   }

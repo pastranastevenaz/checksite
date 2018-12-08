@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-
+require('./scripts');
 $(function() {
     var header = $(".clearHeader");
     $(window).scroll(function() {
@@ -37,11 +37,16 @@ window.Vue = require('vue');
 
 Vue.component(
   'services',
-  require('./components/SerivcesComponent.vue')
+  require('./components/ServicesComponent.vue')
 );
 Vue.component(
   'addAddress',
   require('./components/AddAddressComponent.vue')
+);
+
+Vue.component(
+    'alljobs',
+    require('./components/AllJobsComponent.vue')
 );
 
 Vue.component(
@@ -58,7 +63,31 @@ Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue')
 );
+Vue.component(
+    'homeabout',
+    require('./components/HomeAboutComponent.vue')
+);
+Vue.component(
+    'downarrow',
+    require('./components/DownArrowComponent.vue')
+);
+Vue.component(
+    'contact',
+    require('./components/ContactComponent.vue')
+);
+Vue.component(
+  'helpsection',
+  require('./components/HelpSectionComponent.vue')
+);
+Vue.component(
+  'blogcomponent',
+  require('./components/BlogComponent.vue')
+);
+Vue.component(
+  'migrationscomponent',
+  require('./components/MigrationsComponent.vue')
+);
 
 const app = new Vue({
-  el: '#services'
+  el: '#app'
 });

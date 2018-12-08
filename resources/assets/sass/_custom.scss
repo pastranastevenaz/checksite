@@ -12,7 +12,15 @@
   margin-left: -15px !important;
   margin-right: -15px !important;
 }
-
+.red-text{
+  color: #f0384f !important;
+}
+.green-text{
+  color: #18AF90 !important;
+}
+.checkmark-circle{
+  height: 2em;
+}
 .bordered{
   border-style: solid;
 }
@@ -24,12 +32,49 @@ a:hover, a:active{
   background-color: transparent !important;
   text-decoration: none;
 }
+a.white-link{
+  color: #fff;
+}
+input{
+  border-radius: 0px !important;
+  border-top-style: none !important;
+  border-left-style: none !important;
+  border-right-style: none !important;
+  border-bottom-color: #f0384f !important;
+}
+textarea{
+  border-radius: 0px !important;
+  border-top-style: none !important;
+  border-left-style: none !important;
+  border-right-style: none !important;
+  border-bottom-color: #f0384f !important;
+}
+body{
+  background-color: #ECF2F4 !important;
+}
 
-
+button.btn{
+  color: white;
+  background-color: #f0384f;
+  border-radius: 2.5px;
+  border-style: none;
+}
+button.btn:hover{
+  color: white;
+  background-color: #d83247;
+}
+.white-button{
+  color: #888 !important;
+  background-color: #fff !important;
+  border-style: solid !important;
+  border-color: #ddd !important;
+}
+.white-button:hover{
+  color: #555;
+  background-color: #eee !important;
+}
 #header{
-  background-color: transparent;
-   background: transparent;
-   border-color: transparent;
+
   // margin-bottom: -10px;
   transition: height 4s;
 }

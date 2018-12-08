@@ -69,9 +69,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $address = new Address;
-        $address->owner_id = $user->id;
-        $address->save();
+        // $address = new Address;
+        // $address->owner_id = $user->id;
+        // $address->save();
         return $user;
     }
 }

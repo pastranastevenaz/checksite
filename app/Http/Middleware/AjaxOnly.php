@@ -15,9 +15,9 @@ class AjaxOnly
   */
   public function handle($request, Closure $next)
   {
-    if(!$request->ajax()){
-      return response('Forbidden', 403);
+    if($request->ajax()){
+      return $next($request);
     }
-    return $next($request);
+    abort(403, 'Forbidden');
   }
 }

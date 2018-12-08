@@ -1,0 +1,29 @@
+#header-area{
+  min-height: 70vh;
+  padding-top: 12vh;
+}
+#header-text-1{
+  animation-delay: 0.8s;
+}
+#header-text-2{
+  animation-delay: 2s;
+}
+#header-text-3{
+  animation-delay: 3s;
+}
+#header-text-4{
+  animation-delay: 4s;
+  padding-bottom: 15px;
+}
+.header-icon{
+  height: 55px !important;
+}
+
+@media only screen and (max-width: 460px) {
+  .header-icon{
+    height: 35px !important;
+  }
+  h1{
+    font-size: 1.5em;
+  }
+}

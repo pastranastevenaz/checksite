@@ -3,7 +3,7 @@
          <div class="navbar-header">
 
              <!-- Collapsed Hamburger -->
-             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+             <button id="nav-brand" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                  <span class="sr-only">Toggle Navigation</span>
                  <span class="icon-bar" style="background-color: #444 !important;"></span>
                  <span class="icon-bar" style="background-color: #444 !important;"></span>
@@ -12,10 +12,7 @@
 
              <!-- Branding Image -->
              <a class="navbar-brand" href="{{ url('/') }}">
-                 {{-- {{ config('app.name', 'Laravel') }} --}}
-
-                 <!-- {{-- <img style="width:70%" src="<?php echo asset("storage/images/.png")?>"> -->
-                 {{-- storage/images/timbarberbrand.png --}}
+               <img alt="Haminastu logo" id="nav-logo" src="{{ asset('storage/images/h.png') }}">
              </a>
          </div>
 
@@ -26,37 +23,41 @@
              </ul>
 
              <ul class="nav navbar-nav ">
-               <li class="nav-link"><a href='{!! url('/'); !!}'>{{ config('app.name') }}</a></li>
-               <li class="nav-link"><a href='{!! url('/'); !!}'><span class="glyphicon glyphicon-home" aria-hidden="true"><span></a></li>
+               <li class="nav-link"><a id="nav-brand" href='{!! url('/'); !!}'>{{ config('app.name') }}</a></li>
+               <!-- <a id="nav-brand" href='{!! url('/'); !!}'><span class="glyphicon glyphicon-home" aria-hidden="true"><span></a> -->
                {{-- <li><a href='{!! url('/about'); !!}'>About</a></li> --}}
 
-               @auth
-                <li class="nav-link"><a href='{!! url('/services'); !!}'>Services</a></li>
-               @endauth
+               <!-- @auth -->
+                <!-- <li class="nav-link"><a id="nav-brand" href='{!! url('/services'); !!}'>Services</a></li> -->
+               <!-- @endauth -->
 
-               {{-- <li class="nav-link"><a href='{!! url('/posts'); !!}'>Blog</a></li> --}}
 
                {{-- <li class="nav-link"><a href='#o'>Schedule</a></li> --}}
              </ul>
 
              <!-- Right Side Of Navbar -->
              <ul class="nav navbar-nav navbar-right">
+               @auth
+               <li class="nav-link"><a id="nav-brand" href='{!! url('/tickets'); !!}'>Tickets</a></li>
+               @endauth
+               <li class="nav-link"><a id="nav-brand" href='{!! url('/blog'); !!}'>Blog</a></li>
+
                  <!-- Authentication Links -->
                  @guest
-                     <li class="nav-link"><a href="{{ route('login') }}">Login</a></li>
-                     <li class="nav-link"><a href="{{ route('register') }}">Register</a></li>
+                     <li class="nav-link"><a id="nav-brand" href="{{ route('login') }}">Login</a></li>
+                     <!-- <li class="nav-link"><a id="nav-brand" href="{{ route('register') }}">Register</a></li> -->
                  @else
-                     <li class="dropdown">
+                     <li id="nav-brand" class="dropdown">
                          <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                              {{ Auth::user()->name }} <span class="caret"></span>
                          </a>
 
                          <ul class="dropdown-menu">
                            <li>
-                             <a href="{!! url('/dashboard'); !!}">Dashboard</a>
+                             <a id="nav-brand" href="{!! url('/dashboard'); !!}">Dashboard</a>
                            </li>
                              <li>
-                                 <a href="{{ route('logout') }}"
+                                 <a id="nav-brand" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">
                                      Logout

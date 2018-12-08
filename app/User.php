@@ -5,11 +5,12 @@ namespace App;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 use App\Services;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -39,7 +40,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Services');
     }
 
-    public function address(){
-      return $this->hasMany('App\Address');
+
+    public function website(){
+      return $this->hasMany('App\Website');
+    }
+
+    public function ticket(){
+      return $this->hasMany('App\Ticket');
     }
 }

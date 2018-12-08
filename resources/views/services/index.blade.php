@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-  <h1 class="text-center">My Services</h1>
+  <h1 class="text-center">My Tickets</h1>
 
-  <a href="/services/create"><button>New</button></a>
+  <a href="/tickets/create"><button>New</button></a>
 
   @if(count($services)>0)
   @foreach($services as $service)

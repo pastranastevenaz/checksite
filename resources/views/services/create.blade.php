@@ -2,10 +2,12 @@
 
 @section('content')
   <div class="container">
-    <h1>Request New Cleaning Service</h1>
+    <h1>Tickets</h1>
 
     <div id="services">
       <services></services>
     </div>
+
+
   </div>
 @endsection

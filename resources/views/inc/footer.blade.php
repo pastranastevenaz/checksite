@@ -1,12 +1,66 @@
-<div class="footer-wrapper">
-  <br>
-  <div class="footer-divider">
 
-  </div>
-    <div class="footer">
-      <h4 class="text-center">{{ config('app.name' )}}</h4>
-      <p class="text-center">&copy; 2018 {{ config('app.name') }}.
-      <br>https://WeNeedADomaainName.com
-      <br>800-555-1234</p>
+
+  <div>
+    <div id="footer-top-section">
+
     </div>
-</div>
+
+    <div id="footer-divider"></div>
+
+    <div id="footer-main-section">
+      <br><br>
+
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <ul>
+            <li><b>
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <a class="white-link" href="{{ url('about-us') }}">About Us</a>
+            </b></li>
+
+            <li><b>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <a class="white-link" href="#">List Item</a>
+            </b></li>
+            <li><b>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <a class="white-link" href="#">List Item</a>
+            </b></li>
+            <li><b>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <a class="white-link" href="#">List Item</a>
+            </b></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-4">
+          <ul>
+            <li><b>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              List Item
+            </b></li>
+            <li><b>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              List Item
+            </b></li>
+            <li><b>
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              List Item
+            </b></li>
+          </ul>
+        </div>
+
+
+        <div class="col-sm-4">
+          <ul>
+            <li><b>List Item</b></li>
+            <li><b>List Item</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+  </div>
