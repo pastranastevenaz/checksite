@@ -184,7 +184,7 @@
                     <button v-on:click="handleReset"  class="white-button btn-block btn btn-warning btn-lg">
                       Cancel
                     </button>
-                    <button v-on:click="handleNext" class="pull-right btn-block btn btn-light btn-lg">
+                    <button v-on:click="handleHelpFormSubmit" class="pull-right btn-block btn btn-light btn-lg">
                       Submit
                     </button>
                 </form>
@@ -219,7 +219,14 @@ export default {
       websites: [],
       selected: "",
 
-      serviceSelected: 0
+      serviceSelected: 0,
+      contact: {
+          name: '',
+          email: '',
+          message: '',
+          phone: '',
+          time: ''
+        }
     }
   },
 
@@ -290,6 +297,35 @@ export default {
       this.changePanel();
     },
 
+    handleHelpFormSubmit: function (e) {
+      e.preventDefault();
+      console.log('Hello Friend');
+      let name = this.contact.name;
+      let email = this.contact.email;
+      let message = this.contact.message;
+      let phone = this.contact.phone;
+      let time = this.contact.time;
+      this.submitted = 1;
+      console.log(name +" "+ email +" "+ message +" "+ phone +" "+ time);
+      // this.contactHidden = true;
+      setTimeout(function () { this.contactHidden = true }.bind(this), 1000);
+      setTimeout(function () { this.thankyouHidden = false; }.bind(this), 1000);
+      // this.thankyouHidden = false;
+      let newContact = {
+        name: name = this.contact.name,
+        email: this.contact.email,
+        message: this.contact.message,
+        phone: this.contact.phone,
+        time: this.contact.time
+      }
+      console.log(newContact);
+      axios.post('/submit', newContact)
+        .then(response => {
+          console.log(response.data);
+        }).catch(error => {
+          console.log(error);
+        })      
+    },
 
 
     submitRequest: function () {

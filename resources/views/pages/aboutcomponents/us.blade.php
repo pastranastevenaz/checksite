@@ -6,7 +6,7 @@
     <div class="row">
       <div class="card-section col-md-6">
             <center>
-              <img src="storage/images/steven.jpg" class="img-circle founder-image">
+              <img src="storage/images/stevenavatar.png" class="img-circle founder-image">
             </center>
             <br>
             <center>

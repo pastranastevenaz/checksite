@@ -43601,7 +43601,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       websites: [],
       selected: "",
 
-      serviceSelected: 0
+      serviceSelected: 0,
+      contact: {
+        name: '',
+        email: '',
+        message: '',
+        phone: '',
+        time: ''
+      }
     };
   },
 
@@ -43670,6 +43677,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.stateSelected = '';
       this.newZip = '';
       this.changePanel();
+    },
+
+    handleHelpFormSubmit: function handleHelpFormSubmit(e) {
+      e.preventDefault();
+      console.log('Hello Friend');
+      var name = this.contact.name;
+      var email = this.contact.email;
+      var message = this.contact.message;
+      var phone = this.contact.phone;
+      var time = this.contact.time;
+      this.submitted = 1;
+      console.log(name + " " + email + " " + message + " " + phone + " " + time);
+      // this.contactHidden = true;
+      setTimeout(function () {
+        this.contactHidden = true;
+      }.bind(this), 1000);
+      setTimeout(function () {
+        this.thankyouHidden = false;
+      }.bind(this), 1000);
+      // this.thankyouHidden = false;
+      var newContact = {
+        name: name = this.contact.name,
+        email: this.contact.email,
+        message: this.contact.message,
+        phone: this.contact.phone,
+        time: this.contact.time
+      };
+      console.log(newContact);
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/submit', newContact).then(function (response) {
+        console.log(response.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
     },
 
     submitRequest: function submitRequest() {
@@ -44246,7 +44286,7 @@ var render = function() {
                                   {
                                     staticClass:
                                       "pull-right btn-block btn btn-light btn-lg",
-                                    on: { click: _vm.handleNext }
+                                    on: { click: _vm.handleHelpFormSubmit }
                                   },
                                   [
                                     _vm._v(

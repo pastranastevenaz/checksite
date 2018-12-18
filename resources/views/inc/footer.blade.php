@@ -21,15 +21,15 @@
 
             <li><b>
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              <a class="white-link" href="#">List Item</a>
+              <a class="white-link" href="#">Github</a>
             </b></li>
             <li><b>
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              <a class="white-link" href="#">List Item</a>
+              <a class="white-link" href="#">Blog</a>
             </b></li>
             <li><b>
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              <a class="white-link" href="#">List Item</a>
+              <a class="white-link" href="#">Facebook</a>
             </b></li>
           </ul>
         </div>
@@ -38,11 +38,11 @@
           <ul>
             <li><b>
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              List Item
+              Instagram
             </b></li>
             <li><b>
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              List Item
+              Mission
             </b></li>
             <li><b>
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
