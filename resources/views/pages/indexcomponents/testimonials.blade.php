@@ -8,17 +8,17 @@
               <img alt="Quotes Icon" class="quotes-icon" src="storage/images/quotes.png">
             </div>
             <div class="col-sm-8 offset-sm-1">
-              <p> Quisque consequat leo id elit efficitur rutrum. Integer sollicitudin ipsum nulla, vel tempor velit pulvinar at.  </p>
+              <p> The folks over at Haminastu have been amazing. They've always over delivered. We're looking forward to continued our continued partnership.  </p>
 
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
-              <small>Guy Manderson | AG Logistics</small>
+              <small>The team @ | <a href="http://vuejscookbook.com">VueJS Cookbook</a></small>
 
             </div>
             <div class="col-sm-2 offset-sm-1">
-              <img alt="Review avatar" class="img-circle review-avatar" src="storage/images/cx1.jpg">
+              <img alt="Review avatar" class="img-circle review-avatar" src="storage/images/vue.png">
             </div>
           </div>
         </div>
@@ -33,17 +33,17 @@
               <img alt="Quotes Icon" class="quotes-icon" src="storage/images/quotes.png">
             </div>
             <div class="col-sm-8 offset-sm-1">
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>Always delivered and extremely dependable!.</p>
 
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
-              <small>Judy Smith | Colgate Farms</small>
+              <small>Terri | <a href="https://www.givingtrunkco.com">Giving Trunk Co.</a></small>
 
             </div>
             <div class="col-sm-2 offset-sm-1">
-              <img alt="Review avatar" class="img-circle review-avatar" src="storage/images/cx2.jpg">
+              <img alt="Review avatar" class="img-circle review-avatar" src="storage/images/terri.jpg">
             </div>
           </div>
         </div>

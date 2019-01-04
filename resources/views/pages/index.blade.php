@@ -33,6 +33,8 @@
 <br>
 @include('pages.indexcomponents.about')
 <br>
+@include('pages.indexcomponents.menu')
+<br>
 <br>
 @include('pages.indexcomponents.help')
 <br>

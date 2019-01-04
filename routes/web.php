@@ -24,6 +24,7 @@ Route::get('about-us', 'PagesController@about');
 Route::get('submit', 'ContactFormController@submit');
 Route::post('submit', 'ContactFormController@submit')->middleware('ajax');
 Route::resource('tickets', 'ServicesController');
+Route::get('services', 'PagesController@services');
 // JSON REQUESTS -------------------
 Route::get('/getallwebsites', 'UserDataController@getallwebsites')->middleware('ajax');
 
@@ -40,7 +41,7 @@ Route::get('/getallwebsites', 'UserDataController@getallwebsites')->middleware('
 // Route::resource('posts', 'PostsController');
 Auth::routes();
 // Route::get('/services', 'PagesController@services');
-Route::post('services/store', 'ServicesController@store')->middleware('ajax');
+// Route::post('services/store', 'ServicesController@store')->middleware('ajax');
 
 
 Route::get('/dashboard', 'DashboardController@index');

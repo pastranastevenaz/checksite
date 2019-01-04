@@ -17,7 +17,22 @@
   -moz-box-shadow: 0px -2px 9px 0px rgba(92,106,130,1);
   box-shadow: 0px -2px 9px 0px rgba(92,106,130,1);
   background-color: #2B2D42;
-  min-height: 40vh;
+  min-height: 13vh;
   color: white;
   line-height: 2.5em;
+}
+
+
+
+
+
+
+
+#footer-media{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 70px !important;
+}
+.social-icon{
+  height: 38px !important;
 }

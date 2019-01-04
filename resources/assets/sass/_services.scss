@@ -1,0 +1,50 @@
+.service-list{
+  margin-left: 20px !important;
+}
+.price{
+
+}
+.you-get{
+  margin-left: 40px;
+}
+#admin::before{
+  content: url("/storage/images/admin.png");
+  margin-right: 8px;
+
+}
+#security::before{
+  content: url("/storage/images/security.png");
+  margin-right: 8px;
+}
+#updates::before{
+  content: url("/storage/images/update.png");
+  margin-right: 8px;
+}
+#design::before{
+  content: url("/storage/images/design.png");
+  margin-right: 8px;
+}
+#troubleshooting::before{
+  content: url("/storage/images/troubleshooting.png");
+  margin-right: 8px;
+}
+
+.service-card{
+    background-color: #fff;
+    height: 300px;
+    padding-top: 25px;
+    // margin-left: 2em;
+    // margin-right: 2em;
+}
+.service-card-price{
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+}
+@media (max-width: 991px) {
+  .service-card {
+    margin-bottom: 30px;
+    margin-left:-60px;
+    margin-right:-60px;
+  }
+}

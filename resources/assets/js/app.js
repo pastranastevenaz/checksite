@@ -88,6 +88,11 @@ Vue.component(
   require('./components/MigrationsComponent.vue')
 );
 
+Vue.component(
+  'indexmenu',
+  require('./components/IndexMenuComponent.vue')
+);
+
 const app = new Vue({
   el: '#app'
 });

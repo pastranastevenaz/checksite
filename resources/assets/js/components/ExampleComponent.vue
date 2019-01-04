@@ -21,3 +21,40 @@
         }
     }
 </script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="app">
+  <p v-for="user in users">{{ user.name }}</p>
+</div>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue-WordPress!',
+    users: []
+  },
+  methods: {
+    makeApiRequest: function () {
+      console.log("called makeApiRequest");
+      axios.get('http://jsonplaceholder.typicode.com/users').then((response) => {
+      this.users = response.data
+    })
+    .catch((e) => {
+      console.error(e)
+    })
+    }
+  },
+  mounted(){
+    console.log("Loaded the vue");
+    this.makeApiRequest();
+  }
+})
+</script>

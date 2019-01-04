@@ -11714,6 +11714,10 @@ button.close {
   color: #18AF90 !important;
 }
 
+.purple-text {
+  color: #2F3043 !important;
+}
+
 .checkmark-circle {
   height: 2em;
 }
@@ -11927,9 +11931,22 @@ li {
   -webkit-box-shadow: 0px -2px 9px 0px #5c6a82;
   box-shadow: 0px -2px 9px 0px #5c6a82;
   background-color: #2B2D42;
-  min-height: 40vh;
+  min-height: 13vh;
   color: white;
   line-height: 2.5em;
+}
+
+#footer-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-bottom: 70px !important;
+}
+
+.social-icon {
+  height: 38px !important;
 }
 
 #more-button {
@@ -12188,5 +12205,58 @@ li.id-card-list-item::before {
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.service-list {
+  margin-left: 20px !important;
+}
+
+.you-get {
+  margin-left: 40px;
+}
+
+#admin::before {
+  content: url("/storage/images/admin.png");
+  margin-right: 8px;
+}
+
+#security::before {
+  content: url("/storage/images/security.png");
+  margin-right: 8px;
+}
+
+#updates::before {
+  content: url("/storage/images/update.png");
+  margin-right: 8px;
+}
+
+#design::before {
+  content: url("/storage/images/design.png");
+  margin-right: 8px;
+}
+
+#troubleshooting::before {
+  content: url("/storage/images/troubleshooting.png");
+  margin-right: 8px;
+}
+
+.service-card {
+  background-color: #fff;
+  height: 300px;
+  padding-top: 25px;
+}
+
+.service-card-price {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+}
+
+@media (max-width: 991px) {
+  .service-card {
+    margin-bottom: 30px;
+    margin-left: -60px;
+    margin-right: -60px;
+  }
 }
 
