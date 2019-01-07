@@ -11706,6 +11706,11 @@ button.close {
   margin-right: -15px !important;
 }
 
+hr {
+  border-top: 1px solid #ddd;
+  width: 70%;
+}
+
 .red-text {
   color: #f0384f !important;
 }
@@ -11917,12 +11922,12 @@ li {
   -moz-box-shadow: 0px -2px 13px 3px rgba(186,199,204,1);
   box-shadow: 0px -2px 13px 3px rgba(186,199,204,1); */
   background-color: #f0384f;
-  height: 3vh;
+  height: 1.7vh;
 }
 
 #footer-divider {
   background-color: #8D99AE;
-  height: 4px;
+  height: 2px;
   -webkit-box-shadow: 0px -2px 13px 0px #a30d1e;
   box-shadow: 0px -2px 13px 0px #a30d1e;
 }
@@ -11931,9 +11936,23 @@ li {
   -webkit-box-shadow: 0px -2px 9px 0px #5c6a82;
   box-shadow: 0px -2px 9px 0px #5c6a82;
   background-color: #2B2D42;
-  min-height: 13vh;
+  min-height: 7vh;
   color: white;
-  line-height: 2.5em;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 36px;
+  padding-right: 36px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #footer-media {
@@ -11942,11 +11961,11 @@ li {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding-bottom: 70px !important;
 }
 
 .social-icon {
-  height: 38px !important;
+  height: 24px !important;
+  margin-left: 18px;
 }
 
 #more-button {
@@ -12240,16 +12259,36 @@ li.id-card-list-item::before {
   margin-right: 8px;
 }
 
+.service-card-row {
+  padding: 60px;
+}
+
 .service-card {
+  height: 380px;
+}
+
+.service-card-container {
   background-color: #fff;
-  height: 300px;
-  padding-top: 25px;
+  height: 380px;
+  padding: 30px;
+}
+
+.service-card-description {
+  margin-left: 16px;
 }
 
 .service-card-price {
   position: absolute;
-  bottom: 30px;
+  bottom: 60px;
   left: 50px;
+}
+
+.managed-hosting-container {
+  height: 470px !important;
+}
+
+.managed-hosting-card {
+  height: 470px !important;
 }
 
 @media (max-width: 991px) {
@@ -12257,6 +12296,17 @@ li.id-card-list-item::before {
     margin-bottom: 30px;
     margin-left: -60px;
     margin-right: -60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .service-card-container {
+    height: 360px;
+    padding: 8px;
+  }
+
+  .service-card-row {
+    padding: 0px;
   }
 }
 

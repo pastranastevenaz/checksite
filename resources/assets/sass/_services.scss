@@ -28,23 +28,47 @@
   content: url("/storage/images/troubleshooting.png");
   margin-right: 8px;
 }
-
+.service-card-row{
+  padding: 60px;
+}
 .service-card{
-    background-color: #fff;
-    height: 300px;
-    padding-top: 25px;
+    height: 380px;
+    // padding-top: 25px;
     // margin-left: 2em;
     // margin-right: 2em;
 }
+.service-card-container{
+  background-color: #fff;
+  height: 380px;
+  padding: 30px;
+}
+.service-card-description{
+    margin-left: 16px;
+}
 .service-card-price{
   position: absolute;
-  bottom: 30px;
+  bottom: 60px;
   left: 50px;
+}
+.managed-hosting-container{
+  height: 470px !important;
+}
+.managed-hosting-card{
+  height: 470px !important;
 }
 @media (max-width: 991px) {
   .service-card {
     margin-bottom: 30px;
     margin-left:-60px;
     margin-right:-60px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .service-card-container{
+    height: 360px;
+    padding: 8px;
+  }
+  .service-card-row{
+      padding: 0px;
   }
 }
