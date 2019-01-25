@@ -17,17 +17,20 @@
   -moz-box-shadow: 0px -2px 9px 0px rgba(92,106,130,1);
   box-shadow: 0px -2px 9px 0px rgba(92,106,130,1);
   background-color: #2B2D42;
-  min-height: 7vh;
+  height: 12vh;
   color: white;
   // line-height: 2.5em;
 
   display: flex !important;
   flex-direction: row;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding-left: 36px;
-  padding-right: 36px;
+  // padding-right: 36px;
   // padding-top: 18px;
    align-items: center;
+   padding-top: 14px !important;
+    padding-bottom: 16px !important;
+
 }
 
 
@@ -41,5 +44,5 @@
 }
 .social-icon{
   height: 24px !important;
-  margin-left: 18px;
+  // margin-left: 18px;
 }

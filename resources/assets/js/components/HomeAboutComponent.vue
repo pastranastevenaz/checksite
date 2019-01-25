@@ -3,7 +3,7 @@
   <div class="row">
 
 
-
+    <div class="about-card">
       <div class="col-md-4 card">
          <div class="thumbnail">
            <img class="" src="storage/images/about1.jpg" text="image cap" alt="Card image cap">
@@ -19,9 +19,9 @@
            </div>
          </div>
        </div>
+     </div>
 
-
-
+     <div class="about-card">
        <div class="col-md-4 card">
           <div class="thumbnail">
             <img class="" src="storage/images/about2.jpg" text="image cap" alt="Card image cap">
@@ -38,8 +38,9 @@
             </div>
           </div>
         </div>
+      </div>
 
-
+      <div class="about-card">
         <div class="col-md-4 card">
            <div class="thumbnail">
              <img class="" src="storage/images/about3.3.jpg" text="image cap" alt="Card image cap">
@@ -56,7 +57,7 @@
              </div>
            </div>
          </div>
-
+       </div>
 
   </div>
 </div>

@@ -24,7 +24,7 @@
       And More...
     </h5>
   </center>
-
+</div>
 
 
 @include('pages.indexcomponents.downarrow')
@@ -61,7 +61,7 @@
 @include('pages.indexcomponents.contact')
 <br>
 <br>
-</div>
+
 @include('pages.indexcomponents.testimonials')
 
 @endsection

@@ -11936,7 +11936,7 @@ li {
   -webkit-box-shadow: 0px -2px 9px 0px #5c6a82;
   box-shadow: 0px -2px 9px 0px #5c6a82;
   background-color: #2B2D42;
-  min-height: 7vh;
+  height: 12vh;
   color: white;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -11945,14 +11945,12 @@ li {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   padding-left: 36px;
-  padding-right: 36px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 14px !important;
+  padding-bottom: 16px !important;
 }
 
 #footer-media {
@@ -11965,7 +11963,6 @@ li {
 
 .social-icon {
   height: 24px !important;
-  margin-left: 18px;
 }
 
 #more-button {
@@ -12085,6 +12082,12 @@ a.nav-link {
 .no-gutters > [class*="col-"] {
   padding-right: 0;
   padding-left: 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .about-card {
+    margin-bottom: 220px;
+  }
 }
 
 .hidden {

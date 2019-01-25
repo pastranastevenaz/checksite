@@ -1413,7 +1413,7 @@ $(function () {
 });
 
 window.Vue = __webpack_require__(39);
-
+Vue.config.productionTip = false;
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -1445,6 +1445,12 @@ Vue.component('indexmenu', __webpack_require__(103));
 var app = new Vue({
   el: '#app'
 });
+/**
+* Uncomment below when compiling to production
+*/
+// Vue.config.devtools = false;
+// Vue.config.debug = false;
+// Vue.config.silent = true;
 
 /***/ }),
 /* 15 */
@@ -47226,6 +47232,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -47284,49 +47291,51 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-4 card" }, [
-        _c("div", { staticClass: "thumbnail" }, [
-          _c("img", {
-            attrs: {
-              src: "storage/images/about1.jpg",
-              text: "image cap",
-              alt: "Card image cap"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "caption" }, [
-            _c("h3", [_vm._v("Elegant and eye catching design")]),
+      _c("div", { staticClass: "about-card" }, [
+        _c("div", { staticClass: "col-md-4 card" }, [
+          _c("div", { staticClass: "thumbnail" }, [
+            _c("img", {
+              attrs: {
+                src: "storage/images/about1.jpg",
+                text: "image cap",
+                alt: "Card image cap"
+              }
+            }),
             _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("ul", [
-              _c("div", {}, [
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/ux.png"
-                      }
-                    })
+            _c("div", { staticClass: "caption" }, [
+              _c("h3", [_vm._v("Elegant and eye catching design")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("ul", [
+                _c("div", {}, [
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/ux.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("UX/UI")])
                   ]),
-                  _c("b", [_vm._v("UX/UI")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/mobile.png"
-                      }
-                    })
-                  ]),
-                  _c("b", [_vm._v("Mobile")])
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/mobile.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Mobile")])
+                  ])
                 ])
               ])
             ])
@@ -47334,63 +47343,65 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-4 card" }, [
-        _c("div", { staticClass: "thumbnail" }, [
-          _c("img", {
-            attrs: {
-              src: "storage/images/about2.jpg",
-              text: "image cap",
-              alt: "Card image cap"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "caption" }, [
-            _c("h3", [_vm._v("Custom sofware & plugin development")]),
+      _c("div", { staticClass: "about-card" }, [
+        _c("div", { staticClass: "col-md-4 card" }, [
+          _c("div", { staticClass: "thumbnail" }, [
+            _c("img", {
+              attrs: {
+                src: "storage/images/about2.jpg",
+                text: "image cap",
+                alt: "Card image cap"
+              }
+            }),
             _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("ul", [
-              _c("div", {}, [
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/android.png"
-                      }
-                    })
+            _c("div", { staticClass: "caption" }, [
+              _c("h3", [_vm._v("Custom sofware & plugin development")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("ul", [
+                _c("div", {}, [
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/android.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Android")])
                   ]),
-                  _c("b", [_vm._v("Android")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/webdev.png"
-                      }
-                    })
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/webdev.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Web")])
                   ]),
-                  _c("b", [_vm._v("Web")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/desktop.png"
-                      }
-                    })
-                  ]),
-                  _c("b", [_vm._v("Desktop")])
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/desktop.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Desktop")])
+                  ])
                 ])
               ])
             ])
@@ -47398,63 +47409,65 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-4 card" }, [
-        _c("div", { staticClass: "thumbnail" }, [
-          _c("img", {
-            attrs: {
-              src: "storage/images/about3.3.jpg",
-              text: "image cap",
-              alt: "Card image cap"
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "caption" }, [
-            _c("h3", [_vm._v("IT, Automation & Marketing services.")]),
+      _c("div", { staticClass: "about-card" }, [
+        _c("div", { staticClass: "col-md-4 card" }, [
+          _c("div", { staticClass: "thumbnail" }, [
+            _c("img", {
+              attrs: {
+                src: "storage/images/about3.3.jpg",
+                text: "image cap",
+                alt: "Card image cap"
+              }
+            }),
             _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _c("ul", [
-              _c("div", {}, [
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/migration.png"
-                      }
-                    })
+            _c("div", { staticClass: "caption" }, [
+              _c("h3", [_vm._v("IT, Automation & Marketing services.")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("ul", [
+                _c("div", {}, [
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/migration.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Migrations")])
                   ]),
-                  _c("b", [_vm._v("Migrations")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/backups.png"
-                      }
-                    })
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/backups.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Backups")])
                   ]),
-                  _c("b", [_vm._v("Backups")])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("span", [
-                    _c("img", {
-                      staticClass: "about-icon",
-                      attrs: {
-                        alt: "ux icon",
-                        id: "nav-logo",
-                        src: "storage/images/cloud.png"
-                      }
-                    })
-                  ]),
-                  _c("b", [_vm._v("Cloud / Servers")])
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("span", [
+                      _c("img", {
+                        staticClass: "about-icon",
+                        attrs: {
+                          alt: "ux icon",
+                          id: "nav-logo",
+                          src: "storage/images/cloud.png"
+                        }
+                      })
+                    ]),
+                    _c("b", [_vm._v("Cloud / Servers")])
+                  ])
                 ])
               ])
             ])
@@ -49380,7 +49393,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.hidden[data-v-1793f723]{\n  visibility: hidden;\n}\n.menu-heading[data-v-1793f723]{\n  margin-left: 20%;\n  border-left-style: solid;\n  padding-left: 1em;\n  border-left-color: #f0384f;\n  border-left-width: thick;\n}\n", ""]);
+exports.push([module.i, "\n.hidden[data-v-1793f723]{\n  visibility: hidden;\n}\n.menu-heading[data-v-1793f723]{\n  margin-left: 20%;\n  border-left-style: solid;\n  padding-left: 1em;\n  border-left-color: #f0384f;\n  border-left-width: thick;\n}\n@media(max-width: 572px){\nh2[data-v-1793f723]{\n    font-size: 1.5em;\n}\n}\n", ""]);
 
 // exports
 

@@ -70,4 +70,9 @@
   border-left-color: #f0384f;
   border-left-width: thick;
 }
+@media(max-width: 572px){
+  h2{
+    font-size: 1.5em;
+  }
+}
 </style>
